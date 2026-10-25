@@ -1,0 +1,232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a1422"><title>Scripture Context | Explore an Era</title><style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0a1422;color:#eaf1fb}*{box-sizing:border-box}body{margin:0}main{max-width:780px;margin:auto;padding:20px 14px 55px}h1{font-size:clamp(24px,6vw,36px);margin:3px 0}p{line-height:1.5}.muted{color:#a9bbce}.eyebrow{color:#88a4c3;font-size:12px;font-weight:700;letter-spacing:.12em}.panel{background:#132338;border:1px solid #29405a;border-radius:16px;padding:15px;margin-top:16px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.year{font-size:21px;font-weight:800;color:#fff}button{background:#1e344e;color:#d9e6f5;border:1px solid #36516f;border-radius:999px;padding:9px 12px;font-weight:650;cursor:pointer}button.active{background:#d9e8ff;color:#122238}button:focus-visible{outline:2px solid #fff;outline-offset:2px}.filters button{display:inline-flex;align-items:center;gap:6px}.filters button.active::before{content:"✓";font-weight:900}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.scale,.track{display:grid;grid-template-columns:92px minmax(0,1fr);gap:9px;align-items:center}.scale{margin:12px 0 4px}.axis{display:flex;justify-content:space-between;font-size:11px;color:#a8bcd0}.track{margin:4px 0;min-height:25px}.track-label{font-size:13px;font-weight:650}.lane{position:relative;height:19px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(20% - 1px),#31455b calc(20% - 1px),#31455b 20%),#1a2a3d;border-radius:5px;overflow:hidden}.bar{position:absolute;top:3px;height:13px;border-radius:5px;min-width:3px}.cursor{position:absolute;top:0;bottom:0;width:2px;background:#fff;z-index:2;box-shadow:0 0 5px #fff}#timelineTouch{touch-action:pan-y;cursor:crosshair;user-select:none;outline-offset:5px}.timeline-panel{margin-top:8px}.context-panel{position:sticky;bottom:0;z-index:5;max-height:44vh;overflow:auto;box-shadow:0 -8px 30px #07101b}.context-panel .event{padding:8px;margin-top:6px}.context-panel .event p{margin:3px 0}.context-panel .pill{margin:3px 0}.filters{margin:8px 0}.panel{padding:11px;margin-top:9px}.group{margin-top:18px}.group-title{font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:10px}.event{padding:12px;border:1px solid #344c68;border-radius:12px;margin-top:9px;background:#192d45}.event h3{margin:0 0 4px;font-size:15px}.event p{font-size:13px;margin:5px 0;color:#c0d0e2}.event a{color:#9dcaff;font-size:13px}.pill{font-size:11px;color:#b8c9df;border:1px solid #49607c;border-radius:8px;padding:2px 7px;display:inline-block;margin:6px 0}.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:#a8bbd0}.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}.small{font-size:12px}.tabs{display:flex;gap:7px;margin-top:10px}.tabs button{flex:1;border-radius:10px;font-size:12px;padding:9px 5px}.marker{position:absolute;top:1px;height:17px;width:3px;z-index:1;border-radius:2px;background:#f472b6}.marker.uncertain{background:repeating-linear-gradient(to bottom,#f472b6 0 4px,transparent 4px 7px)}.bar.uncertain{background:repeating-linear-gradient(90deg,#a58aff 0 7px,#625493 7px 11px)!important}.context-panel .event{padding:8px;margin-top:6px}.ref-list{display:flex;gap:7px;flex-wrap:wrap}.ref-list a{display:inline-block;border:1px solid #3a5676;border-radius:7px;padding:4px 7px;text-decoration:none}.event .kind{font-size:11px;color:#91b7dc}.event .note{color:#d3e0ef}.timeline-panel .legend{margin-top:8px!important}.context-panel h3{font-size:14px}.context-panel .event p{line-height:1.35}.event-lane{height:25px;overflow:visible}.event-tick{position:absolute;top:5px;height:15px;min-width:5px;border-radius:3px;background:var(--event-color);z-index:1}.event-uncertain{background:transparent;border:2px dashed var(--event-color)}.source-note{border-left:2px solid #a58aff;padding-left:8px;color:#b9cce5!important}.context-panel{max-height:40dvh}.event h3{font-size:13px}.context-panel .event{padding:7px}.context-panel .event p{font-size:12px}.empty{font-size:13px;color:#a9bbce}a{color:#9dcaff}footer{margin-top:24px;color:#9aadc2;font-size:12px;line-height:1.5}@media(min-width:620px){main{padding:32px}.scale,.track{grid-template-columns:145px minmax(0,1fr)}.track-label{font-size:14px}}
+.track-label-button{appearance:none;border:0;background:transparent;color:inherit;border-radius:6px;padding:5px 2px;font-size:12px;font-weight:650;text-align:left;line-height:1.15;width:100%;display:flex;align-items:center;gap:4px}.track-label-button:focus-visible{outline:2px solid #fff}.track-label-button .hide-icon{font-size:13px;color:#9fb4cd}.hidden-tracks{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 9px}.hidden-tracks button{font-size:11px;padding:5px 8px;border-radius:8px;border:1px dashed #607b9b;background:#1b3047}.hidden-tracks button:before{content:"+ ";font-weight:900;color:#7ddbc9}.track-help{font-size:11px;color:#9db1c9;margin:4px 0 6px}.track-label-button:hover{background:#233951}@media(max-width:420px){.track-label-button{font-size:11px}.scale,.track{grid-template-columns:84px minmax(0,1fr);gap:6px}}
+
+.era-picker{width:100%;background:#1e344e;color:#eef5ff;border:1px solid #456280;border-radius:12px;padding:12px;font-size:15px;font-weight:700}.era-sub{font-size:12px;color:#b3c8dc;margin:7px 0 0}.era-wrap{margin-top:15px}.era-wrap label{display:block;font-size:12px;color:#9cb8d3;font-weight:700;margin-bottom:6px}.axis span{white-space:nowrap}.era-note{border-left:3px solid #eeb94f;padding:7px 10px;margin:10px 0;color:#b9cce2;font-size:12px;background:#1a2d42;border-radius:5px}.year{white-space:nowrap}.context-panel{max-height:38dvh}.track-label-button{overflow-wrap:anywhere}@media(max-width:390px){.axis{font-size:9px}.year{font-size:17px}}
+.navigation-tools{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end;margin:10px 0 8px}.navigation-tools label{font-size:11px;color:#b3c8dc;font-weight:700;display:block;margin-bottom:5px}.jump-picker{width:100%;min-width:0;background:#1e344e;color:#eef5ff;border:1px solid #456280;border-radius:10px;padding:10px;font-size:13px}.zoom-tools{display:flex;align-items:center;gap:5px}.zoom-tools button{border-radius:9px;min-width:37px;padding:9px 10px}.zoom-tools button:disabled{opacity:.4;cursor:not-allowed}.window-note{font-size:11px;color:#9fb6d0;margin:5px 0}.navigation-tools button:focus-visible,.jump-picker:focus-visible{outline:2px solid #fff;outline-offset:2px}@media(max-width:360px){.navigation-tools{grid-template-columns:1fr}.zoom-tools{justify-content:flex-end}}
+</style></head><body><main><div class="eyebrow">SCRIPTURE CONTEXT · INTERACTIVE STUDY</div><h1 id="eraTitle">Judah's Final Years</h1><p class="muted" id="eraDescription">Explore what was happening in Judah when Lehi and Nephi began their story—and how later scriptures remember it.</p><div class="era-wrap"><label for="eraSelect">EXPLORE AN ERA</label><select id="eraSelect" class="era-picker" aria-label="Choose scriptural era"></select><p class="era-sub" id="eraPeriod"></p></div><p class="era-note" id="eraNote"></p><div class="filters" id="filters" role="group" aria-label="Show timeline categories"></div><p class="muted small" style="margin:0 0 8px">Select any combination of categories.</p><section class="panel timeline-panel"><div class="top"><strong>People, reigns & departures</strong><div class="year" id="yearLabel">597 BC</div></div><p class="muted small" style="margin:6px 0">Drag or tap the bars; release to snap only when near an event · Tap names to hide rows</p><div class="navigation-tools"><div><label for="eventJump">JUMP TO AN EVENT</label><select id="eventJump" class="jump-picker" aria-label="Jump to a key event"><option value="">Choose an event…</option></select></div><div><label>TIME SCALE</label><div class="zoom-tools"><button type="button" id="zoomOut" aria-label="Zoom out to show more years" title="Zoom out">−</button><button type="button" id="zoomIn" aria-label="Zoom in to show fewer years" title="Zoom in">+</button><button type="button" id="zoomReset" aria-label="Show entire era" title="Full era">All</button></div></div></div><p class="window-note" id="windowNote"></p><div class="scale"><span></span><div class="axis" id="axis"></div></div><div class="track-help">Tap a person’s name to hide their row; tap their name below to restore it.</div><div id="hiddenTracks" class="hidden-tracks" aria-label="Hidden people"></div><div id="timelineTouch" role="slider" tabindex="0" aria-label="Select year by dragging timeline" aria-valuemin="580" aria-valuemax="630" aria-valuenow="597"><div id="tracks"></div><div class="timeline-events" id="timelineEvents"></div></div><div class="legend" id="legend" style="margin-top:15px"></div><div class="legend"><span><i class="dot" style="background:#fff"></i>Event: at the time</span><span><i class="dot" style="background:transparent;border:1px dashed #fff"></i>Approximate</span><span>↶ Later writing about an earlier event</span></div></section><section class="panel context-panel"><div class="top"><strong id="contextTitle">Around 597 BC</strong><span class="small muted">Scripture context</span></div><div class="tabs" role="tablist" aria-label="Scripture context view"><button id="tabEvents" type="button" role="tab" aria-selected="true">At this time</button><button id="tabRelated" type="button" role="tab" aria-selected="false">Later references</button></div><div id="events" aria-live="polite"></div></section><footer>Dates in other eras may be illustrative traditional chronologies. Solid event markers indicate historically anchored dates; dashed markers and ranges indicate approximate or traditional placement. Later scripture references are not dated to the historical events they describe. Dates are approximate unless otherwise specified. The bars show reigns, narrative periods, or periods of recorded activity—not necessarily lifespans. In the Jerusalem era, Lehi's departure is traditionally dated around 600 BC, but 1 Nephi 1 places its opening in Zedekiah's first year (historically 597 BC). The two dating conventions are not fully reconciled. Scripture links open ChurchofJesusChrist.org. The dataset is selective: missing event markers do not imply a gap in scripture or history. Built for study, not as a claim of precise dating for every passage.</footer></main><script>
+let START=630,END=580;
+let tracks=[
+{name:'Josiah',a:630,b:609,c:'kings'},
+{name:'Jehoahaz',a:609,b:609,c:'kings'},
+{name:'Jehoiakim',a:609,b:598,c:'kings'},
+{name:'Jehoiachin',a:598,b:597,c:'kings'},
+{name:'Zedekiah',a:597,b:586,c:'kings'},
+{name:'Jeremiah',a:627,b:580,c:'prophets',note:'Ministry extends beyond the fall; endpoint is not known'},
+{name:'Zephaniah',a:630,b:609,c:'prophets',note:'Broad illustrative ministry window; exact dates uncertain'},
+{name:'Habakkuk',a:612,b:597,c:'prophets',note:'Broad illustrative ministry window; exact dates uncertain'},
+{name:'Ezekiel',a:593,b:580,c:'prophets',note:'Continued beyond this chart'},
+{name:'Lehi',a:597,b:597,c:'bom',uncertain:true,note:'Opening of 1 Nephi is in Zedekiah’s first year; traditional date c. 600 BC'},
+{name:'Nephi',a:597,b:580,c:'bom',uncertain:true,note:'Narrative activity begins in this period and extends far beyond the chart; not the dates of composition'},
+{name:'Mulek departure',a:587,b:586,c:'mulek',uncertain:true,note:'Departure placed around Zedekiah’s captivity; exact year and journey unknown'}];
+const refs={
+jer1:['Jeremiah 1','https://www.churchofjesuschrist.org/study/scriptures/ot/jer/1?lang=eng'],
+kings22:['2 Kings 22–23','https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng'],
+kings23:['2 Kings 23','https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng'],
+jer36:['Jeremiah 36','https://www.churchofjesuschrist.org/study/scriptures/ot/jer/36?lang=eng'],
+kings24:['2 Kings 24:17–20','https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng'],
+nephi1:['1 Nephi 1:4–20','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/1?lang=eng'],
+nephi2:['1 Nephi 2:1–7','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/2?lang=eng'],
+nephi5:['1 Nephi 5:13','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/5?lang=eng'],
+nephi7:['1 Nephi 7:14','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/7?lang=eng'],
+nephi10:['1 Nephi 10:3','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/10?lang=eng'],
+twonephi25:['2 Nephi 25:10','https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/25?lang=eng'],
+jer27:['Jeremiah 27–29','https://www.churchofjesuschrist.org/study/scriptures/ot/jer/27?lang=eng'],
+ezek1:['Ezekiel 1','https://www.churchofjesuschrist.org/study/scriptures/ot/ezek/1?lang=eng'],
+jer38:['Jeremiah 37–39','https://www.churchofjesuschrist.org/study/scriptures/ot/jer/38?lang=eng'],
+kings25:['2 Kings 25','https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/25?lang=eng'],
+omni:['Omni 1:15–19','https://www.churchofjesuschrist.org/study/scriptures/bofm/omni/1?lang=eng'],
+hel8:['Helaman 8:20–21','https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/8?lang=eng']};
+// a and b are the earliest and latest plausible years in BC, not composition dates.
+let events=[
+{a:627,b:627,title:'Jeremiah begins his ministry',detail:'Jeremiah is called during Josiah’s reign.',refs:['jer1'],cat:'prophets',kind:'historical'},
+{a:622,b:622,title:'Josiah’s reforms',detail:'A book of the law is found and Huldah is consulted.',refs:['kings22'],cat:'kings',kind:'approximate'},
+{a:609,b:609,title:'Josiah dies',detail:'Egypt intervenes in Judah’s succession.',refs:['kings23'],cat:'kings',kind:'historical'},
+{a:605,b:604,title:'Jeremiah’s scroll and Baruch',detail:'Baruch writes Jeremiah’s prophecies; Jehoiakim burns the scroll.',refs:['jer36'],cat:'prophets',kind:'approximate'},
+{a:597,b:597,title:'Zedekiah becomes king',detail:'Babylon replaces Jehoiachin with Zedekiah.',refs:['kings24'],cat:'kings',kind:'historical'},
+{a:600,b:597,title:'Lehi prophesies in Jerusalem',detail:'1 Nephi opens in Zedekiah’s first year (historically 597 BC); traditional Book of Mormon dating often uses about 600 BC.',refs:['nephi1'],cat:'bom',kind:'traditional'},
+{a:600,b:597,title:'Lehi’s family leaves Jerusalem',detail:'The family departs after Lehi receives a warning. Its precise placement within the early Zedekiah period is not established.',refs:['nephi2'],cat:'bom',kind:'traditional'},
+{a:600,b:595,title:'Brass plates obtained',detail:'Nephi says the brass plates contained prophecies spoken by Jeremiah. The exact year of retrieval is unknown.',refs:['nephi5'],cat:'bom',kind:'approximate'},
+{a:600,b:595,title:'Nephi mentions Jeremiah’s imprisonment',detail:'Nephi refers to Jeremiah being imprisoned; the verse does not establish which imprisonment or its date.',refs:['nephi7'],cat:'bom',kind:'approximate'},
+{a:597,b:590,title:'Jeremiah warns Zedekiah’s Judah',detail:'Jeremiah’s messages about Babylon and exile overlap the early Zedekiah period; individual chapters have different dates.',refs:['jer27'],cat:'prophets',kind:'approximate'},
+{a:593,b:593,title:'Ezekiel receives his calling',detail:'Ezekiel ministers among the exiles in Babylon.',refs:['ezek1'],cat:'prophets',kind:'historical'},
+{a:588,b:586,title:'Jerusalem’s final siege',detail:'Jeremiah continues warning Judah amid the Babylonian siege.',refs:['jer38'],cat:'prophets',kind:'approximate'},
+{a:587,b:586,title:'Jerusalem falls',detail:'Babylon destroys Jerusalem and captures Zedekiah.',refs:['kings25'],cat:'kings',kind:'historical'},
+{a:587,b:586,title:'Mulek’s group departs',detail:'Omni places their departure around Zedekiah’s captivity. The exact timing and route are not given.',refs:['omni','hel8'],cat:'mulek',kind:'traditional'}];
+let related=[
+{title:'Jeremiah’s prophecies on the brass plates',detail:'Nephi describes the contents of a record the family obtained; this does not date the composition of Jeremiah’s words.',refs:['nephi5'],year:597},
+{title:'Jeremiah imprisoned',detail:'Nephi mentions an imprisonment, but does not identify which of Jeremiah’s recorded imprisonments.',refs:['nephi7'],year:597},
+{title:'Lehi foretells Jerusalem’s destruction',detail:'A prophecy reported in Nephi’s narrative, not a contemporary dated manuscript.',refs:['nephi10'],year:597},
+{title:'Nephi reflects on Jerusalem’s fall',detail:'Nephi describes the destruction retrospectively; the writing itself should not be placed in 586 BC.',refs:['twonephi25'],year:586},
+{title:'Mulek and the people of Zarahemla',detail:'Omni describes a migration from Jerusalem at the time of Zedekiah’s captivity; it was written much later.',refs:['omni'],year:586},
+{title:'Helaman recalls Jeremiah and Mulek',detail:'Helaman 8 mentions both Jeremiah and Zedekiah’s son Mulek long after the events.',refs:['hel8'],year:586}];
+const colors={nt:'#7dc9ff',nephites:'#b69bff',empires:'#eeb94f',apostles:'#40cbb7',kings:'#eeb94f',prophets:'#40cbb7',bom:'#a58aff',mulek:'#f472b6'};
+// Explicitly distinguish when an event occurred from when a text was composed.
+// Unknown composition dates remain null; we never assign a later source to the event year as a writing date.
+const sourceNotes={
+ nephi1:'Nephi narrates the opening of his family’s story retrospectively; exact composition date is not established here.',
+ nephi2:'An event in Nephi’s retrospective account, not the date he wrote it.',
+ nephi5:'Brass-plate contents described in a later narrative; the year of this description is not the year of the prophecies.',
+ nephi7:'A retrospective mention, not a date for Jeremiah’s imprisonment.',
+ nephi10:'Lehi’s prophecy reported later by Nephi.',
+ twonephi25:'A retrospective account; Nephi’s writing was after the destruction, not in 586 BC.',
+ omni:'A much later account of Mulek’s migration; its composition is not placed at the migration date.',
+ hel8:'Helaman’s much later reference; it was not written during Zedekiah’s reign.'
+};
+
+// Dates use a continuous plotting scale: BC years are positive, AD years negative.
+// This intentionally skips year zero in displayed labels; broad eras do not claim year-level precision.
+const jerusalemData={tracks,events,related};
+const additionalRefs={
+  luke2:['Luke 2','https://www.churchofjesuschrist.org/study/scriptures/nt/luke/2?lang=eng'],
+  matt2:['Matthew 2','https://www.churchofjesuschrist.org/study/scriptures/nt/matt/2?lang=eng'],
+  matt5:['Matthew 5–7','https://www.churchofjesuschrist.org/study/scriptures/nt/matt/5?lang=eng'],
+  matt27:['Matthew 27','https://www.churchofjesuschrist.org/study/scriptures/nt/matt/27?lang=eng'],
+  john20:['John 20','https://www.churchofjesuschrist.org/study/scriptures/nt/john/20?lang=eng'],
+  three1:['3 Nephi 1','https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/1?lang=eng'],
+  three8:['3 Nephi 8','https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/8?lang=eng'],
+  three11:['3 Nephi 11','https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11?lang=eng'],
+  hel14:['Helaman 14','https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/14?lang=eng'],
+  four1:['4 Nephi 1','https://www.churchofjesuschrist.org/study/scriptures/bofm/4-ne/1?lang=eng'],
+  morm6:['Mormon 6','https://www.churchofjesuschrist.org/study/scriptures/bofm/morm/6?lang=eng'],
+  acts2:['Acts 2','https://www.churchofjesuschrist.org/study/scriptures/nt/acts/2?lang=eng'],
+  acts9:['Acts 9','https://www.churchofjesuschrist.org/study/scriptures/nt/acts/9?lang=eng'],
+  oneNe18:['1 Nephi 18','https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/18?lang=eng'],
+  mos2:['Mosiah 2–5','https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2?lang=eng'],
+  alma5:['Alma 5','https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/5?lang=eng'],
+  hel5:['Helaman 5','https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/5?lang=eng'],
+  isa6:['Isaiah 6','https://www.churchofjesuschrist.org/study/scriptures/ot/isa/6?lang=eng'],
+  oneSam16:['1 Samuel 16','https://www.churchofjesuschrist.org/study/scriptures/ot/1-sam/16?lang=eng'],
+  oneKings11:['1 Kings 11–12','https://www.churchofjesuschrist.org/study/scriptures/ot/1-kgs/11?lang=eng'],
+  gen12:['Genesis 12','https://www.churchofjesuschrist.org/study/scriptures/ot/gen/12?lang=eng'],
+  gen37:['Genesis 37','https://www.churchofjesuschrist.org/study/scriptures/ot/gen/37?lang=eng'],
+  ex3:['Exodus 3','https://www.churchofjesuschrist.org/study/scriptures/ot/ex/3?lang=eng']
+};Object.assign(refs,additionalRefs);
+const E=(a,b,title,detail,refKeys,cat,kind='approximate')=>({a,b,title,detail,refs:refKeys,cat,kind});
+const R=(year,title,detail,refKeys)=>({year,title,detail,refs:refKeys});
+const eraConfig={
+ patriarchs:{title:'Patriarchs & Early Israel',period:'Broad traditional setting · ancient chronology is disputed',description:'Explore Abraham, Joseph, and Moses without assuming exact historical years.',note:'Orientation preview: these ancient dates are illustrative traditional ranges, not independently established historical dates.',start:2100,end:1200,defaultYear:1700,categories:[['patriarchs','Patriarchs'],['prophets','Prophets']],tracks:[{name:'Abraham',a:2050,b:1900,c:'patriarchs',uncertain:true},{name:'Joseph',a:1800,b:1650,c:'patriarchs',uncertain:true},{name:'Moses',a:1450,b:1250,c:'prophets',uncertain:true}],events:[E(2050,1900,'The Abraham narratives','God calls Abraham and promises a covenant. Exact dates are unknown.',['gen12'],'patriarchs','traditional'),E(1800,1650,'Joseph in Egypt','Joseph’s story connects the patriarchs with Egypt.',['gen37'],'patriarchs','traditional'),E(1450,1250,'Moses called','The Exodus chronology is debated.',['ex3'],'prophets','traditional')],related:[]},
+ kings:{title:'Kings & Prophets',period:'c. 1050–600 BC',description:'See Judah’s kings and prophets in the context of the divided kingdoms.',note:'Selected highlights, not yet a complete Old Testament chronology. Early monarchic dates are approximate.',start:1050,end:600,defaultYear:740,categories:[['kings','Kings'],['prophets','Prophets']],tracks:[{name:'Saul',a:1050,b:1010,c:'kings',uncertain:true},{name:'David',a:1010,b:970,c:'kings',uncertain:true},{name:'Solomon',a:970,b:931,c:'kings',uncertain:true},{name:'Isaiah',a:740,b:700,c:'prophets',uncertain:true},{name:'Josiah',a:640,b:609,c:'kings'}],events:[E(1010,970,'David’s kingship','David becomes king; exact chronology is approximate.',['oneSam16'],'kings','traditional'),E(931,930,'Kingdom divides','The united monarchy divides into Israel and Judah.',['oneKings11'],'kings','approximate'),E(740,700,'Isaiah’s ministry','Isaiah prophesies during a time of Assyrian pressure.',['isa6'],'prophets','approximate')],related:[]},
+ jerusalem:{title:"Jerusalem's Final Years",period:'630–580 BC',description:'Explore what was happening in Judah when Lehi and Nephi began their story—and how later scriptures remember it.',note:'Full original timeline preserved. The 600 BC traditional Book of Mormon date and 597 BC historical Zedekiah accession are not fully reconciled.',start:630,end:580,defaultYear:597,categories:[['prophets','Prophets'],['kings','Kings'],['bom','Lehi & Nephi'],['mulek','Mulek']],...jerusalemData},
+ lehi:{title:'From Lehi to the Birth of Christ',period:'c. 600–1 BC',description:'Follow Lehi’s journey and the Nephite, Lamanite, and Mulekite stories leading to the signs of Christ’s birth.',note:'Selected Book of Mormon milestones. Many narrative dates follow traditional Book of Mormon chronology; no exact synchronization with ancient empires is implied.',start:600,end:1,defaultYear:125,categories:[['bom','Lehi & Nephi'],['nephites','Nephite history'],['mulek','Mulekites']],tracks:[{name:'Lehi’s journey',a:600,b:580,c:'bom',uncertain:true},{name:'Nephi’s record',a:590,b:545,c:'bom',uncertain:true},{name:'Zarahemla',a:300,b:100,c:'mulek',uncertain:true},{name:'King Benjamin',a:150,b:120,c:'nephites',uncertain:true},{name:'Alma the Younger',a:100,b:70,c:'nephites',uncertain:true},{name:'Helaman’s era',a:55,b:1,c:'nephites',uncertain:true}],events:[E(600,580,'Lehi’s family crosses the sea','The journey to the promised land follows the departure from Jerusalem; exact dates are uncertain.',['oneNe18'],'bom','traditional'),E(150,120,'King Benjamin’s address','King Benjamin teaches the covenant people in Zarahemla.',['mos2'],'nephites','traditional'),E(100,70,'Alma’s preaching','Alma calls the people to spiritual renewal.',['alma5'],'nephites','traditional'),E(55,30,'Helaman’s ministry','Helaman’s account describes Nephite and Lamanite missionary work.',['hel5'],'nephites','traditional'),E(6,1,'Samuel foretells signs of Christ','Samuel the Lamanite prophesies of signs attending Christ’s birth and death.',['hel14'],'nephites','traditional')],related:[R(1,'Signs of Christ’s birth','The narrative in 3 Nephi 1 describes fulfillment of the signs; its dating should not be forced onto a single modern calendar year.',['three1'])]},
+ christ:{title:'The Life of Jesus Christ',period:'c. 6 BC–AD 34',description:'Compare New Testament accounts with signs and events recorded in the Book of Mormon.',note:'The precise dates of Jesus’s birth and crucifixion are debated. The parallel passages describe related events but do not establish a precise shared modern calendar.',start:6,end:-34,defaultYear:-30,categories:[['nt','New Testament'],['nephites','Book of Mormon']],tracks:[{name:'Jesus (mortal life)',a:6,b:-33,c:'nt',uncertain:true},{name:'John the Baptist',a:-26,b:-30,c:'nt',uncertain:true},{name:'Nephite record',a:1,b:-34,c:'nephites',uncertain:true}],events:[E(6,1,'Birth of Jesus','Luke and Matthew narrate Jesus’s birth; the Book of Mormon describes corresponding signs.',['luke2','matt2','three1'],'nt','approximate'),E(-26,-30,'Jesus teaches in Galilee','The Sermon on the Mount is one example of Jesus’s New Testament teachings.',['matt5'],'nt','approximate'),E(-30,-34,'Crucifixion and darkness','The New Testament recounts Jesus’s death; 3 Nephi describes darkness and destruction.',['matt27','three8'],'nephites','approximate'),E(-30,-34,'Resurrection and appearance','The New Testament records the risen Lord; 3 Nephi describes His appearance to the Nephites.',['john20','three11'],'nephites','approximate')],related:[R(1,'Samuel’s prophecy of signs','Samuel’s earlier prophecy anticipates signs of the birth and death of Christ.',['hel14']),R(-33,'Christ appears to the Nephites','3 Nephi describes the risen Christ’s visit; its precise correlation with proposed crucifixion years is uncertain.',['three11'])]},
+ aftermath:{title:"From Christ's Visit to the Fall of the Nephites",period:'c. AD 34–385',description:'Explore the period of unity and peace, its eventual collapse, and the Nephite nation’s destruction.',note:'Selected milestones only. The long era of peace was not the entire period; later centuries saw division and war.',start:-34,end:-400,defaultYear:-200,categories:[['nephites','Nephite history'],['apostles','New Testament']],tracks:[{name:'Early church',a:-34,b:-100,c:'apostles',uncertain:true},{name:'Nephite peace',a:-34,b:-200,c:'nephites',uncertain:true},{name:'Later divisions',a:-200,b:-350,c:'nephites',uncertain:true},{name:'Mormon & Moroni',a:-320,b:-400,c:'nephites',uncertain:true}],events:[E(-34,-35,'Christ visits the Nephites','3 Nephi describes the resurrected Savior’s ministry among the people.',['three11'],'nephites','traditional'),E(-34,-200,'An era of unity and peace','4 Nephi describes an extended period of peace followed by increasing division.',['four1'],'nephites','traditional'),E(-34,-40,'Pentecost and early church','Acts records the apostles’ early ministry in Jerusalem.',['acts2'],'apostles','approximate'),E(-34,-40,'Paul’s conversion','Acts 9 describes Saul’s conversion; its precise date is debated.',['acts9'],'apostles','approximate'),E(-385,-385,'Nephites defeated at Cumorah','Mormon describes the destruction of the Nephite people.',['morm6'],'nephites','traditional')],related:[R(-385,'Mormon’s account of the final battle','The narrative records the battle and its aftermath; traditional AD 385 dating is not independently verified.',['morm6'])]}
+};
+colors.patriarchs='#b69bff';
+const fmtYear=y=>y>0?`${y} BC`:`AD ${Math.abs(y)}`;
+function setupEra(id){
+ eraId=id;const d=eraConfig[id];FULL_START=d.start;FULL_END=d.end;START=d.start;END=d.end;zoomLevel=0;selectedYear=d.defaultYear;
+ tracks=d.tracks;events=d.events;related=d.related;
+ visibleCategories.clear();d.categories.forEach(([key])=>visibleCategories.add(key));hiddenPeople.clear();activeTab='events';
+ document.querySelector('#eraTitle').textContent=d.title;document.querySelector('#eraDescription').textContent=d.description;
+ document.querySelector('#eraPeriod').textContent=d.period;document.querySelector('#eraNote').textContent=d.note;
+ document.querySelector('#eraSelect').value=id;
+ updateAxis();
+ document.querySelector('#legend').innerHTML=d.categories.map(([key,label])=>`<span><i class="dot" style="background:${colors[key]}"></i>${label}</span>`).join('');
+ touch.setAttribute('aria-valuemin',END);touch.setAttribute('aria-valuemax',START);touch.setAttribute('aria-valuenow',selectedYear);
+ render();
+}
+const visibleCategories=new Set(['prophets','kings','bom','mulek']);
+const hiddenPeople=new Set();
+const $=s=>document.querySelector(s);
+let FULL_START=630,FULL_END=580,zoomLevel=0;
+let selectedYear=597,activeTab='events',dragging=false,eraId='jerusalem';
+const touch=$('#timelineTouch');
+const linkList=keys=>'<div class="ref-list">'+keys.map(k=>`<a target="_blank" rel="noopener noreferrer" href="${refs[k][1]}">${refs[k][0]} ↗</a>`).join('')+'</div>';
+const trackReferences={
+ 'Zarahemla':{keys:['omni','hel8'],note:'Omni and Helaman were written later and describe the origins of the people of Zarahemla; they do not date a specific event to this year.'},
+ 'Lehi’s journey':{keys:['nephi2','oneNe18'],note:'Narrative passages describe a journey, not a precisely dated event in every year of this range.'},
+ 'Nephi’s record':{keys:['nephi1','twonephi25'],note:'Nephi’s record describes earlier events; its composition is not precisely dated.'},
+ 'Nephite peace':{keys:['four1'],note:'4 Nephi summarizes a long period; it does not provide an individual event for every year.'},
+ 'Later divisions':{keys:['four1'],note:'4 Nephi describes the later decline of unity; individual years are approximate.'},
+ 'Mormon & Moroni':{keys:['morm6'],note:'Mormon 6 describes the final battle; the entire bar is a broad narrative period.'},
+ 'Jesus (mortal life)':{keys:['luke2','matt27'],note:'These passages describe different moments in Jesus’s life, not events in every year.'},
+ 'Nephite record':{keys:['three1','three11'],note:'These passages cover separate moments; the track is a broad narrative period.'},
+ 'Early church':{keys:['acts2','acts9'],note:'Acts narrates selected events; the dates are approximate.'},
+ 'Jeremiah':{keys:['jer1','jer36'],note:'Jeremiah contains material from different periods of his ministry.'},
+ 'Lehi':{keys:['nephi1','nephi2'],note:'These verses recount Lehi’s call and departure, not an exact date for each year.'},
+ 'Nephi':{keys:['nephi1','nephi5'],note:'The record describes events over time; the year of composition differs from the events.'}
+};
+function ongoingContext(){
+ const active=tracks.filter(t=>visibleCategories.has(t.c)&&!hiddenPeople.has(t.name)&&selectedYear<=t.a&&selectedYear>=t.b);
+ if(!active.length)return '<div class="event"><h3>Historical context</h3><p>No currently displayed people or periods span this year. This means the starter dataset has a gap, not that nothing happened.</p></div>';
+ return '<div class="event"><h3>Ongoing historical context</h3><p class="kind">These bars represent broad periods, not necessarily events in this exact year.</p>'+active.map(t=>{
+   const r=trackReferences[t.name];
+   return `<div style="border-top:1px solid #344c68;padding-top:8px;margin-top:8px"><strong style="color:${colors[t.c]}">${t.name}</strong><p>${t.note||'This person or period overlaps the selected year according to the approximate timeline.'}</p>${r?`<p class="source-note">${r.note}</p>${linkList(r.keys)}`:''}</div>`;
+ }).join('')+'</div>';
+}
+const eventCard=(e,extra='')=>`<article class="event"><h3>${e.title}</h3><div class="kind">${extra||({historical:'Historically anchored',approximate:'Approximate period',traditional:'Traditional / uncertain chronology'}[e.kind])}</div><p>${e.detail}</p>${e.refs.some(k=>sourceNotes[k])?`<p class="source-note"><strong>Event vs. writing:</strong> ${sourceNotes[e.refs.find(k=>sourceNotes[k])]}</p>`:''}${linkList(e.refs)}</article>`;
+function updateAxis(){
+ const steps=window.innerWidth<420?3:5;
+ $('#axis').innerHTML=Array.from({length:steps+1},(_,i)=>`<span>${fmtYear(Math.round(START-(START-END)*i/steps))}</span>`).join('');
+ $('#windowNote').textContent=`Showing ${fmtYear(START)} to ${fmtYear(END)}${zoomLevel?' · Zoomed in':' · Full era'}`;
+ $('#zoomOut').disabled=zoomLevel===0;
+ $('#zoomIn').disabled=START-END<=8;
+ touch.setAttribute('aria-valuemin',END);touch.setAttribute('aria-valuemax',START);
+}
+function zoomTo(level){
+ const span=FULL_START-FULL_END;
+ zoomLevel=Math.max(0,Math.min(6,level));
+ const width=Math.max(8,Math.round(span/Math.pow(2,zoomLevel)));
+ if(width>=span){START=FULL_START;END=FULL_END;zoomLevel=0}
+ else {START=Math.min(FULL_START,Math.round(selectedYear+width/2));END=START-width;if(END<FULL_END){END=FULL_END;START=END+width}}
+ updateAxis();render();
+}
+function jumpToEvent(index){
+ const e=events[index];if(!e)return;
+ selectedYear=Math.round((e.a+e.b)/2);
+ if(selectedYear>START||selectedYear<END){const width=START-END;START=Math.min(FULL_START,Math.round(selectedYear+width/2));END=START-width;if(END<FULL_END){END=FULL_END;START=END+width}}
+ activeTab='events';updateAxis();render();
+}
+function render(){
+updateAxis();$('#yearLabel').textContent=fmtYear(selectedYear);$('#contextTitle').textContent='Around '+fmtYear(selectedYear);
+$('#eventJump').innerHTML='<option value="">Choose an event…</option>'+events.map((e,i)=>`<option value="${i}">${fmtYear(Math.round((e.a+e.b)/2))} · ${e.title}</option>`).join('');
+$('#filters').innerHTML=eraConfig[eraId].categories.map(([id,label])=>`<button type="button" class="${visibleCategories.has(id)?'active':''}" aria-pressed="${visibleCategories.has(id)}" data-filter="${id}">${label}</button>`).join('');
+document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{visibleCategories.has(b.dataset.filter)?visibleCategories.delete(b.dataset.filter):visibleCategories.add(b.dataset.filter);render()});
+const visiblePeople=tracks.filter(t=>visibleCategories.has(t.c));
+const hidden=visiblePeople.filter(t=>hiddenPeople.has(t.name));
+$('#hiddenTracks').innerHTML=hidden.length?hidden.map(t=>`<button type="button" data-show-person="${t.name}" aria-label="Show ${t.name}" title="Restore ${t.name}">${t.name}</button>`).join(''):'';
+document.querySelectorAll('[data-show-person]').forEach(b=>b.onclick=()=>{hiddenPeople.delete(b.dataset.showPerson);render()});
+$('#tracks').innerHTML=visiblePeople.filter(t=>!hiddenPeople.has(t.name)).map(t=>{const left=(START-Math.min(START,t.a))/(START-END)*100,width=Math.max((Math.min(START,t.a)-Math.max(END,t.b))/(START-END)*100,0.8);const active=selectedYear<=t.a&&selectedYear>=t.b;const marker=t.a===t.b;const inWindow=t.a>=END&&t.b<=START;if(!inWindow)return '';return `<div class="track" title="${t.note||''}"><button type="button" class="track-label-button" data-hide-person="${t.name}" aria-label="Hide ${t.name} row" title="Hide ${t.name}"><span class="hide-icon" aria-hidden="true">−</span><span style="color:${active?'#fff':'#b2c1d2'}">${t.name}</span></button><div class="lane">${marker?`<div class="marker ${t.uncertain?'uncertain':''}" style="left:${left}%;background-color:${colors[t.c]}"></div>`:`<div class="bar ${t.uncertain?'uncertain':''}" style="left:${left}%;width:${width}%;background:${colors[t.c]};opacity:${active?1:.7}"></div>`}<div class="cursor" style="left:${(START-selectedYear)/(START-END)*100}%"></div></div></div>`}).join('')||'<p class="empty">No people shown. Restore a hidden name above or enable a category.</p>';
+document.querySelectorAll('[data-hide-person]').forEach(b=>b.onclick=()=>{hiddenPeople.add(b.dataset.hidePerson);render()});
+// Event markers use the SAME 630–580 BC coordinate scale as every person bar.
+// Wider uncertain ranges are outlined; pinpoint events are diamonds.
+$('#timelineEvents').innerHTML='<div class="track"><span class="track-label">Key events</span><div class="lane event-lane">'+events.filter(e=>visibleCategories.has(e.cat)&&e.a>=END&&e.b<=START).map(e=>{const midpoint=(e.a+e.b)/2;const x=(START-midpoint)/(START-END)*100;const w=Math.max((Math.min(START,e.a)-Math.max(END,e.b))/(START-END)*100,0.7);const approximate=e.kind!=='historical';return `<span class="event-tick ${approximate?'event-uncertain':''}" style="left:${(START-Math.min(START,e.a))/(START-END)*100}%;width:${w}%;--event-color:${colors[e.cat]}" title="${e.title} (${e.a===e.b?e.a:fmtYear(e.a)+'–'+fmtYear(e.b)})" aria-label="${e.title}"></span>`}).join('')+`<div class="cursor" style="left:${(START-selectedYear)/(START-END)*100}%"></div></div></div>`;
+$('#tabEvents').classList.toggle('active',activeTab==='events');$('#tabRelated').classList.toggle('active',activeTab==='related');$('#tabEvents').setAttribute('aria-selected',activeTab==='events');$('#tabRelated').setAttribute('aria-selected',activeTab==='related');
+if(activeTab==='events'){
+const matches=events.filter(e=>visibleCategories.has(e.cat)&&selectedYear<=e.a+Math.max(1,(FULL_START-FULL_END)/150)&&selectedYear>=e.b-Math.max(1,(FULL_START-FULL_END)/150)).sort((a,b)=>Math.abs((a.a+a.b)/2-selectedYear)-Math.abs((b.a+b.b)/2-selectedYear));
+$('#events').innerHTML=(matches.length?matches.map(e=>eventCard(e)).join(''):'<p class="empty">No specifically dated events are entered near this year. You can still explore its broader context.</p>')+ongoingContext();
+}else{
+const matches=related.filter(e=>Math.abs(e.year-selectedYear)<=Math.max(2,(FULL_START-FULL_END)/30));
+$('#events').innerHTML=matches.length?matches.map(e=>eventCard(e,'↶ Written later · describes events around '+fmtYear(e.year))).join(''):'<p class="empty">No specific later reference is indexed for this year. The At this time tab may still show broad contextual passages.</p>';
+}}
+function snapToNearestEvent(){
+ // Only consider events from enabled categories that intersect the visible time window.
+ const candidates=events.filter(e=>visibleCategories.has(e.cat)&&e.a>=END&&e.b<=START);
+ if(!candidates.length)return;
+ // For date ranges, snap to the closest year *within* the range, not an invented exact event date.
+ const nearest=candidates.map(e=>{
+   const target=Math.max(e.b,Math.min(e.a,selectedYear));
+   return {e,target,distance:Math.abs(target-selectedYear),midpoint:Math.abs((e.a+e.b)/2-selectedYear)};
+ }).sort((a,b)=>a.distance-b.distance||a.midpoint-b.midpoint)[0];
+ // A maximum 18-pixel displacement prevents jumps across decades on wide eras.
+ // On zooming in, the permitted number of years automatically decreases.
+ const lane=touch.querySelector('.lane');
+ const width=lane?lane.getBoundingClientRect().width:320;
+ const thresholdYears=Math.max(0.5,(START-END)*18/Math.max(width,1));
+ if(nearest.distance>thresholdYears)return;
+ selectedYear=Math.round(nearest.target);
+ activeTab='events';
+ touch.setAttribute('aria-valuenow',selectedYear);
+ render();
+}
+function selectAt(clientX){const lane=touch.querySelector('.lane');if(!lane)return;const rect=lane.getBoundingClientRect();selectedYear=Math.round(START-Math.max(0,Math.min(1,(clientX-rect.left)/rect.width))*(START-END));touch.setAttribute('aria-valuenow',selectedYear);render()}
+touch.addEventListener('pointerdown',e=>{if(e.target.closest('[data-hide-person]'))return;dragging=true;touch.setPointerCapture(e.pointerId);selectAt(e.clientX)});
+touch.addEventListener('pointermove',e=>{if(dragging)selectAt(e.clientX)});
+touch.addEventListener('pointerup',()=>{if(!dragging)return;dragging=false;snapToNearestEvent()});touch.addEventListener('pointercancel',()=>{dragging=false});
+touch.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();selectedYear=e.key==='Home'?START:e.key==='End'?END:Math.max(END,Math.min(START,selectedYear+(e.key==='ArrowLeft'?1:-1)));touch.setAttribute('aria-valuenow',selectedYear);render()}});
+$('#eventJump').addEventListener('change',e=>{if(e.target.value!=='')jumpToEvent(Number(e.target.value))});
+$('#zoomIn').onclick=()=>zoomTo(zoomLevel+1);$('#zoomOut').onclick=()=>zoomTo(zoomLevel-1);$('#zoomReset').onclick=()=>zoomTo(0);
+$('#eraSelect').innerHTML=Object.entries(eraConfig).map(([id,d])=>`<option value="${id}">${d.title}</option>`).join('');$('#eraSelect').onchange=e=>setupEra(e.target.value);
+$('#tabEvents').onclick=()=>{activeTab='events';render()};$('#tabRelated').onclick=()=>{activeTab='related';render()};setupEra('jerusalem');
+</script></body></html>
