@@ -41,6 +41,9 @@ assert(exile.events.find(e=>e.title.includes('fiery furnace')).undated);
 assert(exile.events.find(e=>e.title.includes('dry bones')).undated);
 assert(exile.events.some(e=>e.title.includes('Malachi')));
 assert(eraConfig.kings.tracks.some(t=>t.name==='Huldah'));
+assert(eraConfig.kings.tracks.some(t=>t.name.startsWith('Daniel')&&t.a>=eraConfig.kings.end&&t.b<eraConfig.kings.end));
+assert(eraConfig.kings.events.some(e=>e.title.includes('Daniel enters Babylonian court service')));
+assert(html.includes("'jerusalem','exile','lehi'"),'Exile & Return is ordered between Jerusalem and Lehi in the picker');
 assert(eraConfig.jerusalem.tracks.some(t=>t.name.startsWith('Daniel')));
 assert(settings.exile?.length===2);
 for (const era of [exile,eraConfig.kings,eraConfig.jerusalem]){
