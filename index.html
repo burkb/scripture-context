@@ -467,7 +467,8 @@ $('#eventJump').addEventListener('change',e=>{
 $('#zoomIn').onclick=()=>zoomTo(zoomLevel+1);
 $('#zoomOut').onclick=()=>zoomTo(zoomLevel-1);
 $('#zoomReset').onclick=()=>zoomTo(0);
-$('#eraSelect').innerHTML=Object.entries(eraConfig).map(([id,d])=>`<option value="${id}">${d.title}</option>`).join('');
+const eraOrder=['jaredites','patriarchs','kings','jerusalem','exile','lehi','christ','aftermath'];
+$('#eraSelect').innerHTML=eraOrder.filter(id=>eraConfig[id]).map(id=>`<option value="${id}">${eraConfig[id].title}</option>`).join('');
 $('#eraSelect').onchange=e=>setupEra(e.target.value);
 $('#tabEvents').onclick=()=>{activeTab='events';render()};
 $('#tabRelated').onclick=()=>{activeTab='related';render()};
