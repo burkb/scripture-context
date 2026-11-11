@@ -42,6 +42,7 @@ function enhanceVersion12(){
   const earlier=eraConfig.kings;
   earlier.note='Curated survey of kings, prophets, and key events. Prophetic books are placed by their historical setting, not canonical order; some dates and authorship are disputed. Use Jump to an event for references.';
   earlier.tracks.push(
+    T('Daniel (Babylon / Persia)',605,536,'prophets','Daniel’s early Babylonian court narrative begins near the end of this era. His recorded activity continues under Persian rule; see Exile & Return for the full span.'),
     T('Elijah',875,850,'prophets','Approximate ministry under Ahab and Ahaziah in northern Israel.'),
     T('Elisha',850,800,'prophets','Approximate ministry in northern Israel; not a lifespan.'),
     T('Jonah',790,750,'prophets','2 Kings 14:25 connects Jonah with Jeroboam II; the narrative in Jonah is not precisely dated.'),
@@ -57,6 +58,7 @@ function enhanceVersion12(){
     T('Jeremiah',627,600,'prophets','Ministry begins in 627 BC and continues beyond this era.',false)
   );
   earlier.events.push(
+    event(605,597,'Daniel enters Babylonian court service','Daniel 1 places Daniel and his companions at the Babylonian court during Judah’s final years. The dating is debated; follow the continuing narrative in Exile & Return.',['dan1','2ch36'],'prophets','traditional'),
     event(875,850,'Elijah confronts idolatry in Israel','Elijah ministers under Ahab and encounters the prophets of Baal on Mount Carmel. The event cannot be fixed to a calendar year.',['1k17'],'prophets'),
     event(850,800,'Elisha ministers in northern Israel','Accounts of Elisha include the healing of Naaman and succession after Elijah; exact dates of episodes are uncertain.',['2k2','2k5'],'prophets'),
     event(790,750,'Jonah and Nineveh','Jonah’s prophetic context is associated with Jeroboam II, but the narrative offers no secure year for his mission.',['jon1'],'prophets','traditional'),
