@@ -19,7 +19,7 @@ assert(html.includes('<script src="version12.js"></script>'));
 assert(html.includes('enhanceVersion12();'));
 assert(html.includes('VERSION 12'));
 
-const original=['nephi10','twonephi25','omni','hel8','jer1','jer25','kings24','kings25','jer38'];
+const original=['nephi10','twonephi25','omni','hel8','jer1','jer25','kings22','kings24','kings25','jer38'];
 const refs=Object.fromEntries(original.map(k=>[k,[k,'https://example.org/'+k]]));
 const eraConfig={
   kings:{tracks:[],events:[],related:[],note:''},
