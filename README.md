@@ -15,6 +15,6 @@ The collapsible **Scripture Context** panel sits beneath the timeline. Its cards
 - **Book of Mormon connections** remain visible beside biblical events.
 - **[Coverage and chronology policy](COVERAGE.md):** Sources, dating conventions, limitations, and an initial 2026 *Come, Follow Me* Old Testament coverage audit.
 
-Open `index.html` in a browser to preview. GitHub Pages serves `index.html`, `study-data.js`, `version12.js`, `foreign-rulers.js`, and `foreign-rulers.js` together from the repository root. There is no build step.
+Open `index.html` in a browser to preview. GitHub Pages serves `index.html`, `study-data.js`, `version12.js`, and `foreign-rulers.js` together from the repository root. There is no build step.
 
 Run `node tests/version12.test.js` to perform basic regression checks. A local browser check is recommended before publishing.
