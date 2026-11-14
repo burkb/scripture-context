@@ -18,7 +18,7 @@ const callbacks={};
 const get=key=>nodes[key]||(nodes[key]={
  innerHTML:'',textContent:'',value:'',dataset:{},disabled:false,hidden:false,
  attributes:{},classList:{toggle(){}},focus(){},setAttribute(k,v){this.attributes[k]=v},
- addEventListener(){},setPointerCapture(){},querySelectorAll(){return []},
+ addEventListener(type,callback){this.listeners||(this.listeners={});this.listeners[type]=callback;},setPointerCapture(){},querySelectorAll(){return []},
  getBoundingClientRect(){return {left:0,width:700}}
 });
 const document={
@@ -70,7 +70,7 @@ assert(get('#eventJump').innerHTML.includes('Ezekiel 37 · Valley of dry bones')
 assert(get('#eventJump').innerHTML.includes('Psalm 137 · Exile, lament, and hope'));
 assert(get('#eventJump').innerHTML.includes('Isaiah 40–55 · Return, comfort, and Cyrus'));
 const studyStart=api.inspect();
-api.jumpToStudyHighlight(4); // Daniel 5 and Babylon's fall, around 539 BC.
+get('#eventJump').listeners.change({target:{value:'study:4'}}); // Select Daniel 5 through the actual picker handler.
 assert.equal(api.inspect().year,studyStart.year,'cross-era study must not move Jerusalem year to 539 BC');
 assert.equal(api.inspect().start,studyStart.start,'study must preserve the visible era');
 assert.equal(api.inspect().study,'Daniel 5 · Belshazzar and the writing on the wall');
@@ -80,7 +80,7 @@ assert(get('#events').innerHTML.includes('Daniel 5'));
 assert(get('#eventJump').value==='study:4');
 control('toggle-group','study').onclick();
 assert(get('#studyHighlights').innerHTML.includes('timeline-group-body-study" class="timeline-group-body" hidden'));
-api.jumpToStudyHighlight(2); // Fiery furnace is historically undated.
+control('view-study',2).onclick(); // Select the undated fiery furnace through its study shelf button.
 assert(get('#events').innerHTML.includes('Date not established'));
 assert.equal(api.inspect().year,studyStart.year);
 api.jumpToStudyHighlight(8); // Exile Psalm 137 has no securely dated composition.
