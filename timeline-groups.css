@@ -1,0 +1,59 @@
+/* Shared axis + grouped rows. The boxes are organizational, not new time axes. */
+#tracks{display:flex;flex-direction:column;gap:9px}
+#timelineEvents{margin-top:9px}
+.timeline-group{
+ border:1px solid color-mix(in srgb,var(--group-color) 36%,#304560);
+ border-radius:13px;
+ background:#0d1e31;
+ overflow:hidden;
+}
+.timeline-group-toggle{
+ display:flex;align-items:center;gap:9px;width:100%;min-height:39px;
+ padding:9px 11px;border:0;border-radius:0;text-align:left;
+ background:color-mix(in srgb,var(--group-color) 9%,#102034);
+ color:var(--group-color);
+ font-size:12px;font-weight:800;letter-spacing:.065em;
+ text-transform:uppercase;
+}
+.timeline-group-toggle:hover{background:color-mix(in srgb,var(--group-color) 17%,#102034)}
+.timeline-group-toggle:focus-visible{outline:2px solid #ffffff;outline-offset:-3px}
+.timeline-group-icon{height:19px;width:19px;flex:none}
+.timeline-group-title{flex:1;min-width:0;line-height:1.25}
+.timeline-group-count{font-weight:650;letter-spacing:normal;white-space:nowrap;font-size:11px}
+.timeline-group-chevron{
+ width:9px;height:9px;flex:none;margin-right:5px;
+ border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+ transform:rotate(45deg);transition:transform .15s ease;
+}
+.timeline-group-toggle[aria-expanded="true"] .timeline-group-chevron{transform:rotate(225deg)}
+.timeline-group-body{padding:5px 9px 7px}
+.timeline-group-body[hidden]{display:none}
+.timeline-group-body>.track{
+ padding:2px 3px;border-radius:6px;margin:1px 0;min-height:29px;
+}
+.timeline-group-body>.track:nth-child(even){background:#14283d}
+.timeline-group-body>.track .lane{background-color:#1a2d43}
+.timeline-group-body .track-label-button{padding:4px 2px}
+.timeline-group-body .track-label{padding-left:2px;color:#dbe7f4}
+.timeline-group-body .event-lane{height:25px}
+.timeline-group-empty{margin:3px 4px 5px;color:#9fb4ca;font-size:12px;line-height:1.45}
+.group-actions{
+ display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+ gap:7px;margin:11px 0 9px;
+}
+.group-actions-note{font-size:11px;color:#a8bdd1}
+.group-actions-buttons{display:flex;gap:6px}
+.group-actions-buttons button{
+ font-size:11px;padding:6px 9px;border-radius:8px;
+ background:#1b324c;border:1px solid #496680;
+}
+.group-actions-buttons button:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:420px){
+ .timeline-group-toggle{padding:9px;font-size:11px;gap:7px}
+ .timeline-group-icon{width:17px;height:17px}
+ .timeline-group-body{padding:4px}
+ .timeline-group-body>.track{padding:2px}
+}
+@media(prefers-reduced-motion:reduce){
+ .timeline-group-chevron{transition:none}
+}
