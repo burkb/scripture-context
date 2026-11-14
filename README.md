@@ -2,7 +2,7 @@
 
 **Version 12** is an interactive historical-context timeline connecting significant people, events, and teachings across the Bible and Book of Mormon.
 
-Choose an era, then use the category buttons to show or hide tracks and events. Each category has a color-matched collapsible section with one small heading icon and a count of its currently displayed people; **Writings & Events** has its own collapsible panel and event count. Use **Expand All** or **Collapse All** to focus the timeline without changing the selected year, zoom, or hidden people. Drag or tap the timeline to select a year, or use **Jump to an event** to open its study card. **Fit All** restores the full era at the current year. The range label shows the span between the endpoints, with one year between 1 BC and AD 1.
+Choose an era, then use the category buttons to show or hide tracks and events. Each category has a color-matched collapsible section with one small heading icon and a count of its currently displayed people; **Writings & Events** lists every enabled event as its own dated timeline row. Select a colored bar to open its scripture-study card; click an event name to hide only that row. Hidden people and events appear in restore controls above the timeline, and the event remains searchable in **Jump to an Event**. Section counts show visible entries, or **visible of total** when some are hidden. There is no nested scrolling. **Scripture Context** uses the same collapsible category heading, and its historical/parallel reference tabs remain intact. Use **Expand All** or **Collapse All** to focus the timeline without changing the selected year, zoom, or hidden people. Drag or tap the timeline to select a year, or use **Jump to an event** to open its study card. **Fit All** restores the full era at the current year. The range label shows the span between the endpoints, with one year between 1 BC and AD 1.
 
 The collapsible **Scripture Context** panel sits beneath the timeline. Its cards link to passages and distinguish broad study windows from events with unknown calendar dates. In the Christ era, separate event lanes keep the New Testament and Book of Mormon accounts visible together. The background legend identifies the regional or narrative setting for each view.
 
@@ -17,4 +17,4 @@ The collapsible **Scripture Context** panel sits beneath the timeline. Its cards
 
 Open `index.html` in a browser to preview. GitHub Pages serves `index.html`, `study-data.js`, `version12.js`, and `foreign-rulers.js`, `timeline-groups.js`, and `timeline-groups.css` together from the repository root. There is no build step.
 
-Run `node tests/version12.test.js` to perform basic regression checks. A local browser check is recommended before publishing.
+Run `node tests/version12.test.js` and `node tests/event-layout.test.js` for the data and interaction regression checks. A local browser check is recommended before publishing.

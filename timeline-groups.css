@@ -57,3 +57,49 @@
 @media(prefers-reduced-motion:reduce){
  .timeline-group-chevron{transition:none}
 }
+
+/* Individual event rows: show all, no nested scrolling or height limit. */
+.event-group-help{font-size:11px;color:#a9bdd1;margin:5px 4px 9px;line-height:1.45}
+.timeline-group-body>.event-detail-row{min-height:37px;padding:3px}
+.event-row-label{display:block;min-width:0;flex:1}
+.event-row-title{display:block;overflow-wrap:anywhere;line-height:1.25}
+.event-row-date{display:block;color:#99b1c8;font-size:10px;font-weight:500;margin-top:3px}
+.event-detail-selected{background:#213b50!important}
+.event-detail-row .event-lane{height:28px}
+.event-bar-button{
+ position:absolute;top:5px;height:18px;min-width:11px;padding:0;
+ border:0;border-radius:4px;z-index:3;cursor:pointer;
+ background:var(--event-color);box-shadow:0 0 0 1px #0d1e31;
+}
+.event-bar-button:hover{filter:brightness(1.2);box-shadow:0 0 0 2px #e9f4ff}
+.event-bar-button:focus-visible,.event-offscreen-button:focus-visible{
+ outline:2px solid white;outline-offset:2px;z-index:5;
+}
+.event-bar-uncertain{background:transparent;border:2px dashed var(--event-color)}
+.event-offscreen-button{
+ position:absolute;left:5px;top:3px;z-index:3;max-width:calc(100% - 10px);
+ overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+ background:#29415a;color:#d2e8f8;border:1px solid #557391;
+ border-radius:5px;padding:3px 5px;font-size:10px;line-height:15px;
+ cursor:pointer;
+}
+.hidden-tracks:empty{display:none}
+.hidden-tracks:not(:empty){display:block;margin:8px 0 12px;padding:9px 10px;border:1px solid #4a6681;border-radius:11px;background:#142a41}
+.hidden-items-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:7px;font-size:12px;color:#d6e5f5}
+.hidden-items-heading button{background:#284761;border-radius:7px;border:1px solid #60809f;font-size:11px;padding:5px 8px}
+.hidden-items-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hidden-items-chips button{font-size:11px;padding:5px 8px;border-radius:7px;border:1px dashed #607b9b;background:#1b3047}
+.hidden-items-chips button:hover{background:#294760}
+/* Scripture Context is now a regular category panel, not a separate details widget. */
+.context-panel.timeline-group{padding:0;margin-top:12px}
+.context-panel .timeline-group-toggle{font-size:12px}
+.context-panel .context-content{padding:10px 12px 13px}
+.context-panel .context-content[hidden]{display:none}
+@media(max-width:420px){
+ .timeline-group-body>.event-detail-row{padding:2px}
+ .event-row-title{font-size:11px}
+ .event-row-date{font-size:9px}
+ .event-offscreen-button{padding:3px;font-size:9px}
+}
+
+#contextIcon{display:inline-flex;align-items:center;flex:none}
