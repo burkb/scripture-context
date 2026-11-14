@@ -38,6 +38,7 @@ const document={
    '[data-hide-person]':get('#tracks').innerHTML,
    '[data-hide-event]':get('#timelineEvents').innerHTML,
    '[data-view-event]':get('#timelineEvents').innerHTML,
+   '[data-read-event]':get('#timelineEvents').innerHTML,
    '[data-view-study]':get('#studyHighlights').innerHTML,
    '[data-show-person]':get('#hiddenTracks').innerHTML,
    '[data-restore-event]':get('#hiddenTracks').innerHTML
@@ -49,7 +50,7 @@ const document={
   return callbacks[sel];
  }
 };
-const window={innerWidth:800,addEventListener(){}};
+const window={innerWidth:800,addEventListener(){},matchMedia(query){return {matches:query==='(max-width:600px)'&&this.innerWidth<=600}}};
 const sandbox={document,window};
 const api=vm.runInNewContext(sources.join('\n')+'\n({setupEra,zoomTo,jumpToEvent,jumpToStudyHighlight,inspect:()=>({year:selectedYear,start:START,end:END,events:events.length,hidden:[...hiddenEvents],collapsed:[...collapsedTimelineGroups],study:selectedStudyHighlight?.label||null})})',sandbox);
 const list=(name)=>callbacks['[data-'+name+']']||[];
@@ -58,6 +59,7 @@ for(const era of ['jaredites','patriarchs','kings','jerusalem','exile','lehi','c
  api.setupEra(era);
  assert.equal(list('hide-event').length,api.inspect().events,'every event has an individual row: '+era);
  assert.equal(list('view-event').length,api.inspect().events,'every event has an action: '+era);
+ assert.equal(list('read-event').length,api.inspect().events,'every event has a mobile Read action: '+era);
 }
 api.setupEra('jerusalem');
 assert.equal(api.inspect().events,19);
@@ -116,4 +118,40 @@ assert.equal(api.inspect().year,zoom.year,'hiding and collapsing do not change s
 assert.equal(api.inspect().start,zoom.start,'hiding and collapsing do not change zoom');
 assert.equal(api.inspect().end,zoom.end);
 assert(!file('timeline-groups.css').match(/max-height\s*:\s*\d+px|overflow-y\s*:\s*(auto|scroll)/),'no nested vertical scrolling');
-console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, 10 cross-era Daniel links, context collapse, jump and zoom.');
+assert(html.includes('SIGNIFICANT EVENTS'),'significant events label preserved');
+assert(html.includes('id="eraNotes"'),'historical notes disclosure exists');
+const css=file('timeline-groups.css');
+assert(css.includes('@media (max-width:600px)'),'mobile-only CSS block defined');
+assert(css.includes('grid-template-columns:minmax(0,1fr) auto'),'mobile event title spans the width instead of 84px');
+assert(css.includes('white-space:nowrap;overflow:hidden;text-overflow:ellipsis'),'exceptionally long event names do not wrap to many lines');
+assert(css.includes('.event-read-button'),'visible mobile Read action styled');
+assert(css.includes('.era-notes>summary'),'historical notes summary styled');
+window.innerWidth=390;
+api.setupEra('kings');
+assert(api.inspect().collapsed.includes('events'),'event section starts collapsed on phone');
+assert(!get('#eraNotes').open,'historical notes start closed on phone');
+assert(get('#timelineEvents').innerHTML.includes('timeline-group-body-events" class="timeline-group-body" hidden'));
+assert.equal(list('read-event').length,api.inspect().events);
+control('toggle-group','events').onclick();
+assert(!api.inspect().collapsed.includes('events'),'can expand event section on phone');
+const firstRead=control('read-event',0);
+assert(firstRead&&typeof firstRead.onclick==='function','Read action has a working handler');
+firstRead.onclick({stopPropagation(){}});
+assert(get('#events').innerHTML.includes('Selected event'),'Read opens the corresponding study card');
+api.setupEra('jerusalem');
+assert(api.inspect().collapsed.includes('study'),'connected Daniel study starts collapsed on phone');
+assert.equal(list('view-study').length,10,'collapsed study shelf retains its linked readings');
+assert(!get('#eraNotes').open);
+control('toggle-group','events').onclick();
+control('hide-event',0).onclick();
+assert(get('#timelineEvents').innerHTML.includes('(18 of 19)</span>'),'mobile hiding keeps visible-of-total counts');
+assert(get('#hiddenTracks').innerHTML.includes('data-restore-event="0"'),'mobile hidden event appears at top');
+control('restore-event',0).onclick();
+assert.equal(api.inspect().hidden.length,0,'mobile restore returns event row');
+assert.equal(list('read-event').length,19,'Read controls return when hidden event is restored');
+window.innerWidth=800;
+api.setupEra('jerusalem');
+assert(!api.inspect().collapsed.includes('events'),'events start expanded on desktop');
+assert(!api.inspect().collapsed.includes('study'),'study shelf starts expanded on desktop');
+assert(get('#eraNotes').open,'historical notes remain open on desktop');
+console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, 10 Daniel links, mobile layout, Read actions, collapse, jump and zoom.');
