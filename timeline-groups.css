@@ -106,6 +106,7 @@
 
 /* Cross-era reading shelf: references, not additional dated Jerusalem bars. */
 #studyHighlights{margin-top:10px}
+#studyHighlights:empty{display:none}
 .study-highlight-help{font-size:12px;line-height:1.45;color:#c2d1e2;margin:6px 4px 11px;padding:7px 9px;border-left:2px solid #e4be86;background:#182b3d;border-radius:4px}
 .study-highlight-subheading{font-size:11px;letter-spacing:.065em;text-transform:uppercase;color:#e4be86;margin:13px 3px 7px}
 .study-highlight-list{display:flex;flex-direction:column;gap:5px;margin:0 2px 8px}
