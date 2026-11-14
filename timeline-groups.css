@@ -101,3 +101,5 @@
  .event-row-date{font-size:9px}
  .event-offscreen-button{padding:3px;font-size:9px}
 }
+
+#contextIcon{display:inline-flex;align-items:center;flex:none}
