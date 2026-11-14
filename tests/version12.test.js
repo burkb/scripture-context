@@ -9,11 +9,14 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const extra=fs.readFileSync(path.join(root,'version12.js'),'utf8');
+const groupScript=fs.readFileSync(path.join(root,'timeline-groups.js'),'utf8');
+const groupStyle=fs.readFileSync(path.join(root,'timeline-groups.css'),'utf8');
 const foreign=fs.readFileSync(path.join(root,'foreign-rulers.js'),'utf8');
 const study=fs.readFileSync(path.join(root,'study-data.js'),'utf8');
 new Function(study);
 new Function(extra);
 new Function(foreign);
+new Function(groupScript);
 const inline=html.match(/<script>([\s\S]*?)<\/script>/);
 assert(inline,'Inline timeline script exists');
 new Function(inline[1]);
@@ -21,6 +24,14 @@ assert(html.includes('<script src="version12.js"></script>'));
 assert(html.includes('enhanceVersion12();'));
 assert(html.includes('<script src="foreign-rulers.js"></script>'));
 assert(html.includes('enhanceForeignRulers();'));
+assert(html.includes('<script src="timeline-groups.js"></script>'));
+assert(html.includes('<link rel="stylesheet" href="timeline-groups.css">'));
+assert(html.includes('bindTimelineGroupControls();'));
+assert(html.includes('id="expandAllGroups"')&&html.includes('id="collapseAllGroups"'));
+assert(html.includes('timelineGroupPanel(cat,timelineGroupLabel(cat,label,eraId)'));
+assert(html.includes("timelineGroupPanel('events','Writings & Events'"));
+assert(html.includes('collapsedTimelineGroups.clear();'));
+assert(groupStyle.includes('color:var(--group-color)'));
 assert(html.includes('VERSION 12'));
 
 const original=['nephi10','twonephi25','omni','hel8','jer1','jer25','kings22','kings24','kings25','jer38'];
@@ -82,4 +93,20 @@ for (const era of [eraConfig.kings,jerusalem,exile]){
   for(const key of item.refs||[])assert(refs[key],'missing scripture link '+key);
  }
 }
+const groupResult={};
+vm.runInNewContext(groupScript+`
+groupResult.expanded=timelineGroupPanel('prophets','Prophets',6,'<p>Jeremiah</p>','#40cbb7');
+collapsedTimelineGroups.add('prophets');
+groupResult.collapsed=timelineGroupPanel('prophets','Prophets',6,'<p>Jeremiah</p>','#40cbb7');
+groupResult.kingsTitle=timelineGroupLabel('kings','Judah rulers','jerusalem');
+groupResult.jarediteTitle=timelineGroupLabel('jaredites','Jaredites','jaredites');
+`,{groupResult},{filename:'timeline-groups.js'});
+assert(groupResult.expanded.includes('Prophets <span class="timeline-group-count">(6)</span>'));
+assert(groupResult.expanded.includes('aria-expanded="true"'));
+assert(groupResult.collapsed.includes('aria-expanded="false"'));
+assert(groupResult.collapsed.includes(' hidden>'));
+assert.equal((groupResult.expanded.match(/<svg /g)||[]).length,1,'one icon in heading');
+assert.equal(groupResult.kingsTitle,'Kings of Judah');
+assert.equal(groupResult.jarediteTitle,'Jaredites');
+console.log('Timeline group smoke checks passed: accessible headings, counts, collapse state, shared era labels.');
 console.log('Version 12 foreign-rulers checks passed: '+exile.tracks.length+' exile tracks, '+exile.events.length+' exile events.');
