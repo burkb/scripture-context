@@ -77,7 +77,7 @@ assert(!exile.tracks.some(t=>t.name==='Nabonidus / Belshazzar'));
 for (const era of [eraConfig.kings,jerusalem,exile]){
  const validCats=new Set(era.categories.map(([cat])=>cat));
  for(const item of [...era.tracks,...era.events]){
-  assert(validCats.has(item.c),'unknown category '+item.c+' for '+(item.title||item.name));
+  assert(validCats.has(item.cat||item.c),'unknown category '+(item.cat||item.c)+' for '+(item.title||item.name));
   assert(item.a>=item.b,'reversed dates '+(item.title||item.name));
   for(const key of item.refs||[])assert(refs[key],'missing scripture link '+key);
  }
