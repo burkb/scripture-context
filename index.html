@@ -390,7 +390,7 @@ function renderStudyHighlights(){
    <span class="study-highlight-title">${escapeTimelineText(item.label)}</span>
    <span class="study-highlight-date">${date}</span>
    </button>`;
- }).join('');
+ });
  const guide='<p class="study-highlight-help">This reading list connects Jerusalem’s final years to Daniel and later exile accounts. It follows Daniel 1–7 chapter order for study, not historical event order: Daniel 7 precedes Daniel 5 in the narrated chronology. Some accounts are undated or occur after 580 BC; none are assigned a false Jerusalem timeline marker.</p>';
  const first=studies.filter(item=>item.group==='Daniel 1–7').length;
  const body=guide+`<h3 class="study-highlight-subheading">Daniel 1–7 · Come, Follow Me (${first})</h3>`+
