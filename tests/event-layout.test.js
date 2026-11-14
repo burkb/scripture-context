@@ -106,7 +106,7 @@ control('restore-event',0).onclick();
 assert.equal(api.inspect().hidden.length,0);
 assert.equal(list('hide-event').length,19);
 api.setupEra('exile');
-assert.equal(list('view-study').length,0,'Exile & Return remains authoritative for dated stories');
+assert.equal((get('#studyHighlights').innerHTML.match(/data-view-study=/g)||[]).length,0,'study shelf is not duplicated in Exile & Return');
 assert(get('#studyHighlights').innerHTML==='','cross-era shelf only shows in Jerusalem');
 api.setupEra('jerusalem');api.zoomTo(1);
 const zoom=api.inspect();
