@@ -10,6 +10,7 @@ const timelineGroupIconPaths={
  nephites:'<path d="m3 20 9-17 9 17H3Z"/><path d="M12 3v17M8 20l4-7 4 7"/>',
  mulek:'<path d="M3 18h18l-3 3H6l-3-3ZM12 3v15M5 14l7-10v10H5Z"/><path d="M3 23h18"/>',
  events:'<path d="M8 4h11a3 3 0 0 1 3 3v11H8a4 4 0 1 1 0-8h9"/><path d="M8 10V4a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h14"/>',
+ study:'<path d="M12 5c-3-2-6-2-10-1v16c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1ZM12 5v16"/>',
  context:'<path d="M12 5c-3-2-6-2-10-1v16c4-1 7-1 10 1 3-2 6-2 10-1V4c-4-1-7-1-10 1ZM12 5v16"/>',
  jaredites:'<path d="m2 16 3 2 4-2 4 2 4-2 4 2M2 21l3-2 4 2 4-2 4 2 4-2M12 3v10M5 13h14l-2 3H7l-2-3Z"/>',
  patriarchs:'<circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M2 11l3 3M22 11l-3 3"/>',
