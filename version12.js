@@ -156,6 +156,29 @@ function enhanceVersion12(){
       R(516,'Ezra records the completion of the temple','Ezra 6 gives a regnal date for the temple completion; the narrative is not necessarily composed in the same year.',['ezra6'])
     ]
   };
+  // Curated cross-era reading shelf for the Daniel 1–7 Come, Follow Me lesson.
+  // These are LINKS to the source Exile & Return entries, not additional
+  // Jerusalem-era events. Never force an undated/later story onto 630–580 BC.
+  const linkedStudy=(title,label,group)=>{
+    const source=eraConfig.exile.events.find(item=>item.title===title);
+    if(!source)throw new Error('Missing cross-era scripture study entry: '+title);
+    return {title,label,group,event:source};
+  };
+  j.studyHighlights=[
+    linkedStudy('Daniel and companions enter Babylonian service','Daniel 1 · Faithfulness in Babylon','Daniel 1–7'),
+    linkedStudy('Nebuchadnezzar’s dream of the image','Daniel 2 · The king’s dream of the image','Daniel 1–7'),
+    linkedStudy('The fiery furnace','Daniel 3 · The fiery furnace','Daniel 1–7'),
+    linkedStudy('Nebuchadnezzar’s humbling','Daniel 4 · Nebuchadnezzar’s humbling','Daniel 1–7'),
+    linkedStudy('Babylon falls to Persia','Daniel 5 · Belshazzar and the writing on the wall','Daniel 1–7'),
+    linkedStudy('Daniel in the lions’ den','Daniel 6 · Daniel in the lions’ den','Daniel 1–7'),
+    linkedStudy('Daniel sees the four beasts (Daniel 7)','Daniel 7 · The four beasts','Daniel 1–7'),
+    linkedStudy('The valley of dry bones','Ezekiel 37 · Valley of dry bones','Exile & restoration'),
+    linkedStudy('Exile, lament, and hope in the Psalms','Psalm 137 · Exile, lament, and hope','Exile & restoration'),
+    linkedStudy('Isaiah’s promises of return and Cyrus','Isaiah 40–55 · Return, comfort, and Cyrus','Exile & restoration')
+  ];
+  // Chapter-reading order is deliberate; Daniel 7 precedes Daniel 5 in the
+  // narrative's *historical* sequence, and later stories remain later.
+  j.note+=' Daniel 1–7 and related exile readings are available in the Connected Study Highlights section and at the bottom of Jump to an Event. That reading shelf includes later and undated passages without relocating them into Jerusalem’s 630–580 BC chronology.';
   colors.restoration='#e69dca';
   settings.exile=[
     [605,539,'Neo-Babylonian rule','#876a44'],

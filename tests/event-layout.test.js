@@ -18,7 +18,7 @@ const callbacks={};
 const get=key=>nodes[key]||(nodes[key]={
  innerHTML:'',textContent:'',value:'',dataset:{},disabled:false,hidden:false,
  attributes:{},classList:{toggle(){}},focus(){},setAttribute(k,v){this.attributes[k]=v},
- addEventListener(){},setPointerCapture(){},querySelectorAll(){return []},
+ addEventListener(type,callback){this.listeners||(this.listeners={});this.listeners[type]=callback;},setPointerCapture(){},querySelectorAll(){return []},
  getBoundingClientRect(){return {left:0,width:700}}
 });
 const document={
@@ -33,11 +33,12 @@ const document={
  },
  querySelectorAll(sel){
   const sections={
-   '[data-toggle-group]':get('#tracks').innerHTML+get('#timelineEvents').innerHTML+'<button data-toggle-group="context"></button>',
+   '[data-toggle-group]':get('#tracks').innerHTML+get('#timelineEvents').innerHTML+get('#studyHighlights').innerHTML+'<button data-toggle-group="context"></button>',
    '[data-filter]':get('#filters').innerHTML,
    '[data-hide-person]':get('#tracks').innerHTML,
    '[data-hide-event]':get('#timelineEvents').innerHTML,
    '[data-view-event]':get('#timelineEvents').innerHTML,
+   '[data-view-study]':get('#studyHighlights').innerHTML,
    '[data-show-person]':get('#hiddenTracks').innerHTML,
    '[data-restore-event]':get('#hiddenTracks').innerHTML
   };
@@ -50,7 +51,7 @@ const document={
 };
 const window={innerWidth:800,addEventListener(){}};
 const sandbox={document,window};
-const api=vm.runInNewContext(sources.join('\n')+'\n({setupEra,zoomTo,jumpToEvent,inspect:()=>({year:selectedYear,start:START,end:END,events:events.length,hidden:[...hiddenEvents],collapsed:[...collapsedTimelineGroups]})})',sandbox);
+const api=vm.runInNewContext(sources.join('\n')+'\n({setupEra,zoomTo,jumpToEvent,jumpToStudyHighlight,inspect:()=>({year:selectedYear,start:START,end:END,events:events.length,hidden:[...hiddenEvents],collapsed:[...collapsedTimelineGroups],study:selectedStudyHighlight?.label||null})})',sandbox);
 const list=(name)=>callbacks['[data-'+name+']']||[];
 const control=(name,value)=>list(name).find(e=>Object.values(e.dataset).includes(String(value)));
 for(const era of ['jaredites','patriarchs','kings','jerusalem','exile','lehi','christ','aftermath']){
@@ -60,6 +61,32 @@ for(const era of ['jaredites','patriarchs','kings','jerusalem','exile','lehi','c
 }
 api.setupEra('jerusalem');
 assert.equal(api.inspect().events,19);
+assert.equal(list('view-study').length,10,'Daniel & exile study shelf lists 10 linked readings');
+assert(get('#studyHighlights').innerHTML.includes('Connected Study · Daniel & Exile'));
+assert(get('#eventJump').innerHTML.includes('CONNECTED STUDY · Daniel 1–7 & exile'));
+assert(get('#eventJump').innerHTML.includes('Daniel 3 · The fiery furnace'));
+assert(get('#eventJump').innerHTML.includes('Daniel 4 · Nebuchadnezzar’s humbling'));
+assert(get('#eventJump').innerHTML.includes('Ezekiel 37 · Valley of dry bones'));
+assert(get('#eventJump').innerHTML.includes('Psalm 137 · Exile, lament, and hope'));
+assert(get('#eventJump').innerHTML.includes('Isaiah 40–55 · Return, comfort, and Cyrus'));
+const studyStart=api.inspect();
+get('#eventJump').listeners.change({target:{value:'study:4'}}); // Select Daniel 5 through the actual picker handler.
+assert.equal(api.inspect().year,studyStart.year,'cross-era study must not move Jerusalem year to 539 BC');
+assert.equal(api.inspect().start,studyStart.start,'study must preserve the visible era');
+assert.equal(api.inspect().study,'Daniel 5 · Belshazzar and the writing on the wall');
+assert(get('#contextTitle').textContent.includes('Connected study'));
+assert(get('#events').innerHTML.includes('after this era'));
+assert(get('#events').innerHTML.includes('Daniel 5'));
+assert(get('#eventJump').value==='study:4');
+control('toggle-group','study').onclick();
+assert(get('#studyHighlights').innerHTML.includes('timeline-group-body-study" class="timeline-group-body" hidden'));
+control('view-study',2).onclick(); // Select the undated fiery furnace through its study shelf button.
+assert(get('#events').innerHTML.includes('Date not established'));
+assert.equal(api.inspect().year,studyStart.year);
+api.jumpToStudyHighlight(8); // Exile Psalm 137 has no securely dated composition.
+assert(get('#events').innerHTML.includes('Date not established'));
+api.jumpToEvent(0);
+assert.equal(api.inspect().study,null,'ordinary event navigation clears cross-era focus');
 assert(get('#timelineEvents').innerHTML.includes('(19)</span>'));
 const before=api.inspect();
 control('hide-event',0).onclick();
@@ -78,6 +105,9 @@ assert(!get('#timeline-group-body-context').hidden,'selecting an event reopens S
 control('restore-event',0).onclick();
 assert.equal(api.inspect().hidden.length,0);
 assert.equal(list('hide-event').length,19);
+api.setupEra('exile');
+assert.equal((get('#studyHighlights').innerHTML.match(/data-view-study=/g)||[]).length,0,'study shelf is not duplicated in Exile & Return');
+assert(get('#studyHighlights').innerHTML==='','cross-era shelf only shows in Jerusalem');
 api.setupEra('jerusalem');api.zoomTo(1);
 const zoom=api.inspect();
 control('hide-event',2).onclick();
@@ -86,4 +116,4 @@ assert.equal(api.inspect().year,zoom.year,'hiding and collapsing do not change s
 assert.equal(api.inspect().start,zoom.start,'hiding and collapsing do not change zoom');
 assert.equal(api.inspect().end,zoom.end);
 assert(!file('timeline-groups.css').match(/max-height\s*:\s*\d+px|overflow-y\s*:\s*(auto|scroll)/),'no nested vertical scrolling');
-console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, hidden restore, context collapse, jump and zoom.');
+console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, 10 cross-era Daniel links, context collapse, jump and zoom.');

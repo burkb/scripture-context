@@ -89,7 +89,9 @@ function enhanceForeignRulers(){
     {name:'Jehoiachin',a:598,b:597,c:'kings',uncertain:true,note:'Judah’s king deported by Nebuchadnezzar II in 597 BC; regnal conventions vary.'},
     {name:'Zedekiah',a:597,b:586,c:'kings',uncertain:true,note:'Mattaniah was appointed and renamed Zedekiah by Nebuchadnezzar II; the last reigning king before Jerusalem fell.'}
   );
-  exile.events=exile.events.map(e=>e.cat==='kings'?{...e,cat:'foreign'}:e);
+  // Preserve shared event identities: Jerusalem's connected-study shelf points
+  // to the same Exile & Return records, including Daniel 5.
+  exile.events.forEach(e=>{if(e.cat==='kings')e.cat='foreign';});
   exile.events.push(
     F(597,597,'Nebuchadnezzar II makes Mattaniah king as Zedekiah','After deporting Jehoiachin, Nebuchadnezzar appoints his uncle Mattaniah as Judah’s vassal ruler and changes his name to Zedekiah.',['2k24_17','2ch36']),
     F(609,605,'Egyptian rule gives way to Babylonian power','Judah’s shift from Necho II’s Egyptian influence to Nebuchadnezzar’s Babylonian control forms the background of Jeremiah, Daniel, and the final kings of Judah.',['2k23_34','2k24_1'],'approximate')

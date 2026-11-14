@@ -60,5 +60,11 @@ Historical context includes Egyptian, Assyrian, Babylonian, and Persian rulers *
 
 A ruler who acted across two views appears in both, and event cards provide primary scriptural links. This overlap is intentional rather than duplicate people.
 
+## Overlapping scriptural narratives and study links
+
+Jerusalem's Final Years (630–580 BC) intentionally includes a **Connected Study · Daniel & Exile** shelf alongside dated timeline rows. The shelf links to the same underlying source entries in Exile & Return rather than duplicating those entries as dated Jerusalem events. It makes the current Daniel 1–7 study passages and related Ezekiel 37, Psalm 137, and Isaiah 40–55 readings accessible directly from Jerusalem's view and the end of its **Jump to an Event** menu.
+
+The chapter reading order (Daniel 1–7) is distinct from event chronology: Daniel 7 describes an earlier reign of Belshazzar than the end-of-Babylon scene in Daniel 5, and Daniel 5–6 take place after Jerusalem’s 630–580 BC period. The fiery furnace, Nebuchadnezzar’s humbling, the valley of dry bones, the exile Psalms, and Isaiah’s restoration oracles are not assigned invented fixed dates. The user's selected Jerusalem year and zoom stay unchanged when browsing those connected readings.
+
 ## How to validate
 Run `node tests/version12.test.js` from the repository root. Open `index.html` locally for interactive checks of the era picker, category filters, event jump, zoom, and scripture links. GitHub Pages serves the source files as-is; no build step is required.
