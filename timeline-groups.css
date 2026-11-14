@@ -103,3 +103,23 @@
 }
 
 #contextIcon{display:inline-flex;align-items:center;flex:none}
+
+/* Cross-era reading shelf: references, not additional dated Jerusalem bars. */
+#studyHighlights{margin-top:10px}
+.study-highlight-help{font-size:12px;line-height:1.45;color:#c2d1e2;margin:6px 4px 11px;padding:7px 9px;border-left:2px solid #e4be86;background:#182b3d;border-radius:4px}
+.study-highlight-subheading{font-size:11px;letter-spacing:.065em;text-transform:uppercase;color:#e4be86;margin:13px 3px 7px}
+.study-highlight-list{display:flex;flex-direction:column;gap:5px;margin:0 2px 8px}
+.study-highlight-item{
+ display:flex;align-items:flex-start;justify-content:space-between;gap:8px;
+ width:100%;padding:9px 10px;border:1px solid #334e65;border-radius:8px;
+ text-align:left;background:#162b40;color:#e4edf8;cursor:pointer;
+}
+.study-highlight-item:nth-child(even){background:#122438}
+.study-highlight-item:hover,.study-highlight-item.selected{background:#294458;border-color:#e4be86}
+.study-highlight-item:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.study-highlight-title{flex:1;font-size:12px;font-weight:650;line-height:1.35}
+.study-highlight-date{flex:0 1 180px;text-align:right;font-size:10px;line-height:1.4;color:#b8c8da}
+@media(max-width:490px){
+ .study-highlight-item{flex-direction:column;gap:3px}
+ .study-highlight-date{flex:auto;text-align:left}
+}
