@@ -344,7 +344,7 @@ function renderEventLanes(background,cursor){
  const count=shown.length===eligible.length?String(shown.length):`${shown.length} of ${eligible.length}`;
  const body=rows||'<p class="timeline-group-empty">All events are hidden or filtered. Restore hidden events above or turn on a category.</p>';
  $('#timelineEvents').innerHTML=timelineGroupPanel('events','Writings & Events',count,
-  '<p class="event-group-help">Tap an event name to hide its row · Tap a colored bar to open its scripture study card.</p>'+body,
+  '<p class="event-group-help">Tap an event name to hide its row · Tap a bar or View event to read its study card.</p>'+body,
   '#72df9c');
  document.querySelectorAll('[data-hide-event]').forEach(button=>button.onclick=()=>{
   hiddenEvents.add(Number(button.dataset.hideEvent));
