@@ -46,5 +46,19 @@ The [2026 reading schedule](https://www.churchofjesuschrist.org/study/manual/com
 
 A checked row means **representative material is indexed**, not that every lesson passage has been captured. The next audit pass should concentrate on Joshua–Ruth, wisdom literature, and difficult-to-date prophetic books before claiming comprehensive Old Testament coverage.
 
+## Foreign rulers and vassal kings
+
+Historical context includes Egyptian, Assyrian, Babylonian, and Persian rulers **when their actions directly affect scriptural people or events**. It does not attempt a complete succession list of every empire. The interactive filters distinguish *Israel/Judah rulers*, *Foreign rulers*, and *Prophets* (plus other context categories).
+
+- **Necho II (609 BC):** deposed Jehoahaz and installed Eliakim, renaming him Jehoiakim (2 Kings 23:34–35; 2 Chronicles 36:4).
+- **Nebuchadnezzar II (597 BC):** removed Jehoiachin, appointed his uncle Mattaniah and renamed him Zedekiah (2 Kings 24:17; 2 Chronicles 36:10–13). The same Babylonian king is associated with Daniel’s early narrative and Jerusalem’s eventual destruction.
+- **Samaria, c. 722–720 BC:** biblical passages associate Shalmaneser V with the siege; Sargon II claimed the conquest. Their exact roles in the final conquest remain disputed rather than forced into one unqualified date.
+- **Sennacherib (701 BC):** his campaign against Judah overlaps Hezekiah and Isaiah (2 Kings 18–19; Isaiah 36–37).
+- **Cyrus II (539–538 BC):** conquered Babylon and authorized the return of exiles according to Ezra 1.
+
+**Reigns vs. titles:** Belshazzar is shown separately as a *regent* under Nabonidus; he was not an independent king. In the Exile & Return era, Judah’s local royal figures are deliberately distinct from the imperial rulers.
+
+A ruler who acted across two views appears in both, and event cards provide primary scriptural links. This overlap is intentional rather than duplicate people.
+
 ## How to validate
 Run `node tests/version12.test.js` from the repository root. Open `index.html` locally for interactive checks of the era picker, category filters, event jump, zoom, and scripture links. GitHub Pages serves the source files as-is; no build step is required.
