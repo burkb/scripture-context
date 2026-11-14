@@ -49,6 +49,22 @@ vm.runInNewContext(extra+'\nenhanceVersion12();',context,{filename:'version12.js
 vm.runInNewContext(foreign+'\nenhanceForeignRulers();',context,{filename:'foreign-rulers.js'});
 const exile=eraConfig.exile;
 assert(exile,'Exile & Return era exists');
+const studyLinks=eraConfig.jerusalem.studyHighlights;
+assert.equal(studyLinks.length,10,'Jerusalem has ten cross-era study links');
+assert.equal(studyLinks.filter(link=>link.group==='Daniel 1–7').length,7,'Daniel chapters 1–7 are all linked');
+for(const link of studyLinks){
+ assert(exile.events.includes(link.event),'each study entry references the Exile & Return source event');
+ assert(!eraConfig.jerusalem.events.includes(link.event),'later/undated stories are not inserted as Jerusalem timeline events');
+ for(const key of link.event.refs)assert(refs[key],'missing study scripture reference '+key);
+}
+assert(studyLinks.some(link=>link.event.title==='Nebuchadnezzar’s humbling'&&link.event.undated));
+assert(studyLinks.some(link=>link.event.title==='The fiery furnace'&&link.event.undated));
+assert(studyLinks.some(link=>link.event.title==='The valley of dry bones'&&link.event.undated));
+assert(studyLinks.some(link=>link.event.title==='Exile, lament, and hope in the Psalms'&&link.event.undated));
+assert(studyLinks.some(link=>link.event.title==='Isaiah’s promises of return and Cyrus'&&link.event.undated));
+assert(studyLinks.some(link=>link.label.includes('Daniel 5')&&link.event.a<580),'Daniel 5 is correctly later than Jerusalem era');
+assert(studyLinks.findIndex(link=>link.label.includes('Daniel 7'))>studyLinks.findIndex(link=>link.label.includes('Daniel 5')),'study chapter sequence is distinct from chronology');
+
 assert.equal(exile.start,605);
 assert.equal(exile.end,400);
 assert(exile.tracks.some(t=>t.name.startsWith('Daniel')));
