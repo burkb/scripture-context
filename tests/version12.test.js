@@ -27,7 +27,7 @@ const original=['nephi10','twonephi25','omni','hel8','jer1','jer25','kings22','k
 const refs=Object.fromEntries(original.map(k=>[k,[k,'https://example.org/'+k]]));
 const eraConfig={
   kings:{tracks:[],events:[],related:[],note:''},
-  jerusalem:{tracks:[],events:[],related:[],note:''}
+  jerusalem:{tracks:[],events:[{a:597,b:597,title:'Zedekiah becomes king',detail:'Babylon installs Zedekiah.',refs:['kings24'],cat:'kings',kind:'historical'}],related:[],note:''}
 };
 const colors={};
 const settings={};
