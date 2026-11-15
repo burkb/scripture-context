@@ -41,6 +41,9 @@ function timelineGroupPanel(category,title,count,body,color){
    <span class="timeline-group-title">${title} <span class="timeline-group-count">(${count})</span></span>
    <span class="timeline-group-chevron" aria-hidden="true"></span>
   </button>
+  <button type="button" class="simple-group-handle" data-quick-toggle-group="${category}" aria-controls="${bodyId}" aria-expanded="${!collapsed}" aria-label="${collapsed?'Expand':'Collapse'} ${title}" title="${collapsed?'Expand':'Collapse'} ${title}">
+   <span class="simple-group-line" aria-hidden="true"></span><span class="simple-group-chevron" aria-hidden="true">${collapsed?'▸':'⌄'}</span>
+  </button>
   <div id="${bodyId}" class="timeline-group-body" ${collapsed?'hidden':''}>${body}</div>
  </section>`;
 }
@@ -53,6 +56,15 @@ function bindTimelineGroupControls(){
    else collapsedTimelineGroups.add(category);
    render(); // Selected year, filters, zoom and individually hidden people are unchanged.
    document.querySelector('[data-toggle-group="'+category+'"]')?.focus();
+  };
+ });
+ document.querySelectorAll('[data-quick-toggle-group]').forEach(button=>{
+  button.onclick=()=>{
+   const category=button.dataset.quickToggleGroup;
+   if(collapsedTimelineGroups.has(category))collapsedTimelineGroups.delete(category);
+   else collapsedTimelineGroups.add(category);
+   render();
+   document.querySelector('[data-quick-toggle-group="'+category+'"]')?.focus();
   };
  });
  const categories=toggles.map(button=>button.dataset.toggleGroup);

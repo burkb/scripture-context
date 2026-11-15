@@ -26,7 +26,7 @@
 .event-lane{overflow:hidden}
 .window-note{font-size:12px;font-variant-numeric:tabular-nums}
 @media(pointer:coarse){.track-label-button{width:calc(100% - 10px)}}
-</style><link rel="stylesheet" href="timeline-groups.css"></head><body><main><div class="eyebrow">SCRIPTURE CONTEXT · VERSION 12</div><h1 id="eraTitle">Judah's Final Years</h1><p class="muted" id="eraDescription">Explore what was happening in Judah when Lehi and Nephi began their story—and how later scriptures remember it.</p><div class="era-wrap"><label for="eraSelect">EXPLORE AN ERA</label><select id="eraSelect" class="era-picker" aria-label="Choose scriptural era"></select><p class="era-sub" id="eraPeriod"></p></div><details class="era-notes" id="eraNotes" open><summary>Historical Notes & Dating</summary><div class="era-note" id="eraNote"></div></details><div class="filters" id="filters" role="group" aria-label="Show timeline categories"></div><p class="muted small filter-help" style="margin:0 0 8px">Select any combination of categories.</p><section class="panel timeline-panel"><div class="top"><strong>People, reigns & departures</strong><div class="year" id="yearLabel">597 BC</div></div><p class="muted small timeline-desktop-help" style="margin:6px 0">Drag or tap the bars to select a year · Tap names to hide individual rows · Open or close sections to focus</p><p class="timeline-mobile-help">Tap timeline for year · name to hide · Read to study</p><div class="navigation-tools"><div><label for="eventJump">SIGNIFICANT EVENTS</label><select id="eventJump" class="jump-picker" aria-label="Choose a significant event or scripture story"><option value="">Choose an event…</option></select></div><div><label>TIME SCALE</label><div class="zoom-tools"><button type="button" id="zoomOut" aria-label="Zoom out to show more years" title="Zoom out">−</button><button type="button" id="zoomIn" aria-label="Zoom in to show fewer years" title="Zoom in">+</button><button type="button" id="zoomReset" aria-label="Fit all years in the selected era" title="Fit all years in this era">Fit All</button></div></div></div><p class="window-note" id="windowNote" role="status"></p><div class="scale"><span></span><div class="axis" id="axis"></div></div><div class="track era-strip" aria-hidden="true"><span class="track-label">Setting</span><div class="lane" id="eraStrip"></div></div><div class="track-help">Tap a name to hide its row; restore hidden items from the controls above.</div><div id="hiddenTracks" class="hidden-tracks" aria-label="Hidden timeline items"></div><div class="group-actions"><span class="group-actions-note">Sections · counts reflect enabled items in the full era; hidden rows can be restored</span><div class="group-actions-buttons"><button type="button" id="expandAllGroups">Expand All</button><button type="button" id="collapseAllGroups">Collapse All</button></div></div><div id="timelineTouch" role="slider" tabindex="0" aria-label="Select year by dragging timeline"><div id="tracks"></div><div class="timeline-events" id="timelineEvents"></div><div id="studyHighlights"></div></div><div class="legend" id="settingLegend"></div><div class="legend" id="legend"></div><div class="legend"><span><i class="dot" style="background:#fff"></i>Event: at the time</span><span><i class="dot" style="background:transparent;border:1px dashed #fff"></i>Approximate</span><span>↶ Later writing about an earlier event</span></div></section><section class="panel context-panel timeline-group" id="contextPanel" data-group="context" style="--group-color:#7dc9ff"><button type="button" id="contextToggle" class="timeline-group-toggle" data-toggle-group="context" aria-expanded="true" aria-controls="timeline-group-body-context"><span id="contextIcon" aria-hidden="true"></span><span class="timeline-group-title">Scripture Context</span><span class="timeline-group-chevron" aria-hidden="true"></span></button><div id="timeline-group-body-context" class="timeline-group-body context-content"><p class="context-year" id="contextTitle">Around 597 BC</p><div class="tabs" role="tablist" aria-label="Scripture context view"><button id="tabEvents" type="button" role="tab" aria-selected="true">At this time</button><button id="tabRelated" type="button" role="tab" aria-selected="false">Later references</button></div><div id="events"></div></div></section><footer>Dates in other eras may be illustrative traditional chronologies. Solid event markers indicate historically anchored dates; dashed markers and ranges indicate approximate or traditional placement. Later scripture references are not dated to the historical events they describe. Dates are approximate unless otherwise specified. The bars show reigns, narrative periods, or periods of recorded activity—not necessarily lifespans. In the Jerusalem era, Lehi's departure is traditionally dated around 600 BC, but 1 Nephi 1 places its opening in Zedekiah's first year (historically 597 BC). The two dating conventions are not fully reconciled. Scripture links open ChurchofJesusChrist.org. The dataset is selective: missing event markers do not imply a gap in scripture or history. Built for study, not as a claim of precise dating for every passage.</footer></main><script src="study-data.js"></script><script src="version12.js"></script><script src="foreign-rulers.js"></script><script src="timeline-groups.js"></script><script>
+</style><link rel="stylesheet" href="timeline-groups.css"></head><body><main><div class="eyebrow">SCRIPTURE CONTEXT · VERSION 12</div><h1 id="eraTitle">Judah's Final Years</h1><div class="view-mode-tools" role="group" aria-label="Timeline view mode"><button type="button" id="viewDetailed" aria-pressed="true" class="view-mode-active">Detailed</button><button type="button" id="viewSimple" aria-pressed="false">Simplified</button></div><p class="muted" id="eraDescription">Explore what was happening in Judah when Lehi and Nephi began their story—and how later scriptures remember it.</p><div class="era-wrap"><label for="eraSelect">EXPLORE AN ERA</label><select id="eraSelect" class="era-picker" aria-label="Choose scriptural era"></select><p class="era-sub" id="eraPeriod"></p></div><details class="era-notes" id="eraNotes" open><summary>Historical Notes & Dating</summary><div class="era-note" id="eraNote"></div></details><div class="filters" id="filters" role="group" aria-label="Show timeline categories"></div><p class="muted small filter-help" style="margin:0 0 8px">Select any combination of categories.</p><section class="panel timeline-panel"><div class="top"><strong>People, reigns & departures</strong><div class="year" id="yearLabel">597 BC</div></div><p class="muted small timeline-desktop-help" style="margin:6px 0">Drag or tap the bars to select a year · Tap names to hide individual rows · Open or close sections to focus</p><p class="timeline-mobile-help">Tap timeline for year · name to hide · Read to study</p><div class="navigation-tools"><div class="significant-event-picker"><label for="eventJump">SIGNIFICANT EVENTS</label><div class="event-select-row"><select id="eventJump" class="jump-picker" aria-label="Choose a significant event or scripture story"><option value="">Choose an event…</option></select><output id="simpleYearLabel" class="simple-year" aria-label="Selected year">597 BC</output></div></div><div class="zoom-block"><label>TIME SCALE</label><div class="zoom-row"><span id="simpleWindowNote" class="simple-window-note" aria-label="Time scale range"></span><div class="zoom-tools"><button type="button" id="zoomOut" aria-label="Zoom out to show more years" title="Zoom out">−</button><button type="button" id="zoomIn" aria-label="Zoom in to show fewer years" title="Zoom in">+</button><button type="button" id="zoomReset" aria-label="Fit all years in the selected era" title="Fit all years in this era">Fit All</button></div></div></div></div><p class="window-note" id="windowNote" role="status"></p><div class="scale"><span></span><div class="axis" id="axis"></div></div><div class="track era-strip" aria-hidden="true"><span class="track-label">Setting</span><div class="lane" id="eraStrip"></div></div><div class="track-help">Tap a name to hide its row; restore hidden items from the controls above.</div><div id="hiddenTracks" class="hidden-tracks" aria-label="Hidden timeline items"></div><div class="group-actions"><span class="group-actions-note">Sections · counts reflect enabled items in the full era; hidden rows can be restored</span><details class="simple-sections" id="simpleSectionsControl"><summary>Sections <span aria-hidden="true">▾</span></summary><div class="simple-sections-menu" id="simpleSectionsMenu" role="group" aria-label="Section visibility and folding"></div></details><div class="group-actions-buttons"><button type="button" id="expandAllGroups">Expand All</button><button type="button" id="collapseAllGroups">Collapse All</button></div></div><div id="timelineTouch" role="slider" tabindex="0" aria-label="Select year by dragging timeline"><div id="tracks"></div><div class="timeline-events" id="timelineEvents"></div><div id="studyHighlights"></div></div><div class="legend" id="settingLegend"></div><div class="legend" id="legend"></div><div class="legend"><span><i class="dot" style="background:#fff"></i>Event: at the time</span><span><i class="dot" style="background:transparent;border:1px dashed #fff"></i>Approximate</span><span>↶ Later writing about an earlier event</span></div></section><section class="panel context-panel timeline-group" id="contextPanel" data-group="context" style="--group-color:#7dc9ff"><button type="button" id="contextToggle" class="timeline-group-toggle" data-toggle-group="context" aria-expanded="true" aria-controls="timeline-group-body-context"><span id="contextIcon" aria-hidden="true"></span><span class="timeline-group-title">Scripture Context</span><span class="timeline-group-chevron" aria-hidden="true"></span></button><div id="timeline-group-body-context" class="timeline-group-body context-content"><p class="context-year" id="contextTitle">Around 597 BC</p><div class="tabs" role="tablist" aria-label="Scripture context view"><button id="tabEvents" type="button" role="tab" aria-selected="true">At this time</button><button id="tabRelated" type="button" role="tab" aria-selected="false">Later references</button></div><div id="events"></div></div></section><footer>Dates in other eras may be illustrative traditional chronologies. Solid event markers indicate historically anchored dates; dashed markers and ranges indicate approximate or traditional placement. Later scripture references are not dated to the historical events they describe. Dates are approximate unless otherwise specified. The bars show reigns, narrative periods, or periods of recorded activity—not necessarily lifespans. In the Jerusalem era, Lehi's departure is traditionally dated around 600 BC, but 1 Nephi 1 places its opening in Zedekiah's first year (historically 597 BC). The two dating conventions are not fully reconciled. Scripture links open ChurchofJesusChrist.org. The dataset is selective: missing event markers do not imply a gap in scripture or history. Built for study, not as a claim of precise dating for every passage.</footer></main><script src="study-data.js"></script><script src="version12.js"></script><script src="foreign-rulers.js"></script><script src="timeline-groups.js"></script><script>
 let START=630,END=580;
 let tracks=[
 {name:'Josiah',a:630,b:609,c:'kings'},
@@ -213,7 +213,7 @@ function setupEra(id){
  eraId=id;const d=eraConfig[id];FULL_START=plotYear(d.start);FULL_END=plotYear(d.end);START=FULL_START;END=FULL_END;zoomLevel=0;selectedYear=plotYear(d.defaultYear);
  const plotRange=e=>({...e,a:plotYear(e.a),b:plotYear(e.b)});
  tracks=d.tracks.map(plotRange);events=d.events.map(plotRange);related=d.related.map(e=>({...e,year:plotYear(e.year)}));
- visibleCategories.clear();d.categories.forEach(([key])=>visibleCategories.add(key));hiddenPeople.clear();hiddenEvents.clear();collapsedTimelineGroups.clear();if(isMobileLayout()){collapsedTimelineGroups.add('events');collapsedTimelineGroups.add('study');}activeTab='events';focusedEvent=null;selectedStudyHighlight=null;
+ visibleCategories.clear();d.categories.forEach(([key])=>visibleCategories.add(key));hiddenPeople.clear();hiddenEvents.clear();resetViewCollapseSets();activeTab='events';focusedEvent=null;selectedStudyHighlight=null;
  document.querySelector('#eraTitle').textContent=d.title;document.querySelector('#eraDescription').textContent=d.description;
  $('#eraPeriod').textContent=d.period;
  $('#eraNote').innerHTML=d.note+(d.sources?`<span class="ref-list">${d.sources.map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`).join('')}</span>`:'');
@@ -226,6 +226,29 @@ function setupEra(id){
 const visibleCategories=new Set(['prophets','kings','bom','mulek']);
 const hiddenPeople=new Set();
 const hiddenEvents=new Set();
+let viewMode='detailed';
+const viewCollapseSets={detailed:new Set(),simple:new Set(['events','study','context'])};
+function resetViewCollapseSets(){
+ viewCollapseSets.detailed=new Set(isMobileLayout()?['events','study']:[]);
+ viewCollapseSets.simple=new Set(['events','study','context']);
+ collapsedTimelineGroups.clear();
+ for(const id of viewCollapseSets[viewMode])collapsedTimelineGroups.add(id);
+}
+function setViewMode(next){
+ if(!['detailed','simple'].includes(next)||next===viewMode)return;
+ viewCollapseSets[viewMode]=new Set(collapsedTimelineGroups);
+ viewMode=next;
+ collapsedTimelineGroups.clear();
+ for(const id of viewCollapseSets[next])collapsedTimelineGroups.add(id);
+ document.body.classList.toggle('simplified-view',next==='simple');
+ $('#viewDetailed').setAttribute('aria-pressed',String(next==='detailed'));
+ $('#viewSimple').setAttribute('aria-pressed',String(next==='simple'));
+ $('#viewDetailed').classList.toggle('view-mode-active',next==='detailed');
+ $('#viewSimple').classList.toggle('view-mode-active',next==='simple');
+ $('#simpleSectionsControl').open=false;
+ render();
+}
+
 let selectedStudyHighlight=null;
 const $=s=>document.querySelector(s);
 let FULL_START=630,FULL_END=580,zoomLevel=0;
@@ -266,6 +289,11 @@ function updateAxis(){
  $('#axis').innerHTML=Array.from({length:steps+1},(_,i)=>`<span>${fmtYear(Math.round(START-(START-END)*i/steps))}</span>`).join('');
  const note=`Showing ${dateRange(START,END)} · ${(START-END).toLocaleString('en-US')}-year span${zoomLevel?'':' · Full era'}`;
  if($('#windowNote').textContent!==note)$('#windowNote').textContent=note;
+ const span=START-END;
+ const compact=START>0&&END>0?`${START}–${END} BC · ${span}y`:
+  START<0&&END<0?`AD ${1-START}–${1-END} · ${span}y`:
+  `${fmtYear(START)}–${fmtYear(END)} · ${span}y`;
+ $('#simpleWindowNote').textContent=compact;
  $('#zoomOut').disabled=zoomLevel===0;
  $('#zoomReset').disabled=zoomLevel===0;
  $('#zoomIn').disabled=START-END<=8;
@@ -354,7 +382,7 @@ function renderEventLanes(background,cursor){
   const marker=visible?
    `<button type="button" class="event-bar-button ${e.kind==='historical'?'':'event-bar-uncertain'}" data-view-event="${i}" aria-label="Read ${escapeTimelineText(e.title)} (${date})" title="Read ${escapeTimelineText(e.title)} (${date})" style="${intervalStyle(e.a,e.b,1)};--event-color:${colors[e.cat]}"></button>`:
    `<button type="button" class="event-offscreen-button" data-view-event="${i}" aria-label="Read ${escapeTimelineText(e.title)}">${e.undated?'Read undated account':'View event'}</button>`;
-  return `<div class="track event-detail-row ${focusedEvent===e?'event-detail-selected':''}">
+  return `<div class="track event-detail-row ${focusedEvent===e?'event-detail-selected':''}" style="--row-color:${colors[e.cat]||'#a9c1d9'}">
    <button type="button" class="track-label-button event-hide-button" data-hide-event="${i}" title="Hide ${escapeTimelineText(e.title)} (${date})" aria-label="Hide ${escapeTimelineText(e.title)} (${date}) from the timeline">
     <span class="hide-icon" aria-hidden="true">−</span><span class="event-row-label"><span class="event-row-title">${escapeTimelineText(e.title)}</span><span class="event-row-date">${date}</span></span>
    </button>
@@ -450,10 +478,42 @@ function renderContext(){
  }
  $('#events').innerHTML=(cards||'<p class="empty">No indexed events are shown near this year. You can still explore its broader context.</p>')+ongoingContext();
 }
+function renderSimpleSectionsMenu(){
+ const defs=eraConfig[eraId].categories.map(([id,label])=>({id,label:timelineGroupLabel(id,label,eraId),color:colors[id],filtered:true}));
+ defs.push({id:'events',label:'Writings & Events',color:'#72df9c'});
+ if(currentStudyHighlights().length)defs.push({id:'study',label:'Connected Study',color:'#e4be86'});
+ defs.push({id:'context',label:'Scripture Context',color:'#7dc9ff'});
+ $('#simpleSectionsMenu').innerHTML=defs.map(({id,label,color,filtered})=>{
+  const enabled=!filtered||visibleCategories.has(id);
+  const expanded=!collapsedTimelineGroups.has(id);
+  const count=filtered?tracks.filter(t=>t.c===id&&!hiddenPeople.has(t.name)).length:
+   id==='events'?events.filter((e,i)=>visibleCategories.has(e.cat)&&!hiddenEvents.has(i)).length:
+   id==='study'?currentStudyHighlights().length:null;
+  return `<div class="simple-section-item" style="--section-color:${color||'#a7c3de'}">
+   <span class="simple-section-title">${escapeTimelineText(label)}${count===null?'':` (${count})`}</span>
+   <span class="simple-section-buttons">
+   ${filtered?`<button type="button" data-simple-filter="${id}" aria-pressed="${enabled}" aria-label="${enabled?'Hide':'Show'} category ${escapeTimelineText(label)}">${enabled?'On':'Off'}</button>`:''}
+   <button type="button" data-simple-fold="${id}" aria-pressed="${expanded}" aria-label="${expanded?'Collapse':'Expand'} section ${escapeTimelineText(label)}" ${!enabled?'disabled':''}>${expanded?'Fold':'Open'}</button>
+   </span></div>`;
+ }).join('');
+ document.querySelectorAll('[data-simple-filter]').forEach(button=>button.onclick=()=>{
+  const id=button.dataset.simpleFilter;
+  if(visibleCategories.has(id)){visibleCategories.delete(id);if(focusedEvent?.cat===id)focusedEvent=null;}
+  else visibleCategories.add(id);
+  render();
+ });
+ document.querySelectorAll('[data-simple-fold]').forEach(button=>button.onclick=()=>{
+  const id=button.dataset.simpleFold;
+  if(collapsedTimelineGroups.has(id))collapsedTimelineGroups.delete(id);
+  else collapsedTimelineGroups.add(id);
+  render();
+ });
+}
 function render(){
  updateAxis();
  const year=fmtYear(selectedYear);
  $('#yearLabel').textContent=year;
+ $('#simpleYearLabel').textContent=year;
  $('#contextTitle').textContent=selectedStudyHighlight&&activeTab==='events'?'Connected study · not dated to '+year:'Around '+year;
  touch.setAttribute('aria-valuenow',-selectedYear);
  touch.setAttribute('aria-valuetext',year);
@@ -509,7 +569,7 @@ function render(){
     const mark=t.a===t.b?
      `<div class="marker ${t.uncertain?'uncertain':''}" style="left:clamp(0px,${position(t.a)}%,calc(100% - 3px));--track-color:${colors[t.c]}"></div>`:
      `<div class="bar ${t.uncertain?'uncertain':''}" style="${intervalStyle(t.a,t.b,1)};--track-color:${colors[t.c]};opacity:${active?1:.7}"></div>`;
-    return `<div class="track" title="${t.note||''}"><button type="button" class="track-label-button" data-hide-person="${t.name}" aria-label="Hide ${t.name} row" title="Hide ${t.name}"><span class="hide-icon" aria-hidden="true">−</span><span style="color:${active?'#fff':'#b2c1d2'}">${t.name}</span></button><div class="lane">${background}${mark}${cursor}</div></div>`;
+    return `<div class="track" title="${t.note||''}"><button type="button" class="track-label-button" data-hide-person="${t.name}" aria-label="Hide ${t.name} row" title="Hide ${t.name}"><span class="hide-icon" aria-hidden="true">−</span><span class="person-name" style="--person-color:${colors[t.c]};color:${active?'#fff':'#b2c1d2'}">${t.name}</span></button><div class="lane">${background}${mark}${cursor}</div></div>`;
    }).join('');
    const body=rows||'<p class="timeline-group-empty">No visible rows in this year window. Zoom out or restore a hidden person.</p>';
    return timelineGroupPanel(cat,timelineGroupLabel(cat,label,eraId),people.length,body,colors[cat]||'#adc2d8');
@@ -522,9 +582,11 @@ function render(){
  });
  renderEventLanes(background,cursor);
  renderStudyHighlights();
+ renderSimpleSectionsMenu();
  $('#contextIcon').innerHTML=timelineGroupIcon('context');
  const contextOpen=!collapsedTimelineGroups.has('context');
  $('#contextToggle').setAttribute('aria-expanded',String(contextOpen));
+ $('#contextPanel').classList.toggle('context-open',contextOpen);
  $('#timeline-group-body-context').hidden=!contextOpen;
  touch.querySelectorAll('.lane').forEach(lane=>lane.onclick=e=>{if(!e.target.closest('[data-view-event]')&&!e.target.closest('[data-read-event]'))selectAt(e.clientX)});
  bindTimelineGroupControls();
@@ -584,6 +646,8 @@ $('#eventJump').addEventListener('change',e=>{
 $('#zoomIn').onclick=()=>zoomTo(zoomLevel+1);
 $('#zoomOut').onclick=()=>zoomTo(zoomLevel-1);
 $('#zoomReset').onclick=()=>zoomTo(0);
+$('#viewDetailed').onclick=()=>setViewMode('detailed');
+$('#viewSimple').onclick=()=>setViewMode('simple');
 const eraOrder=['jaredites','patriarchs','kings','jerusalem','exile','lehi','christ','aftermath'];
 $('#eraSelect').innerHTML=eraOrder.filter(id=>eraConfig[id]).map(id=>`<option value="${id}">${eraConfig[id].title}</option>`).join('');
 $('#eraSelect').onchange=e=>setupEra(e.target.value);
