@@ -192,6 +192,9 @@ control('hide-person','Jeremiah').onclick();
 assert(api.inspect().hiddenPeople.includes('Jeremiah'),'individual hide remains active');
 control('quick-toggle-group','kings').onclick();
 assert(api.inspect().collapsed.includes('kings'),'tiny colored handle can fold a category');
+control('quick-toggle-group','events').onclick();
+control('hide-event',0).onclick();
+assert(api.inspect().hidden.includes(0),'hiding an event works in simplified');
 api.zoomTo(1);
 const simpleBefore=api.inspect();
 get('#viewDetailed').onclick();
@@ -203,6 +206,7 @@ assert.equal(detailedAfter.start,simpleBefore.start);
 assert.equal(detailedAfter.end,simpleBefore.end);
 assert.equal(detailedAfter.zoom,simpleBefore.zoom);
 assert(detailedAfter.hiddenPeople.includes('Jeremiah'));
+assert(detailedAfter.hidden.includes(0),'hidden events survive switching views');
 assert(!detailedAfter.categories.includes('foreign'));
 assert(!detailedAfter.collapsed.includes('prophets')&&!detailedAfter.collapsed.includes('kings'),
  'the detailed view retains its independent fold state');
