@@ -21,7 +21,12 @@ const get=key=>nodes[key]||(nodes[key]={
  addEventListener(type,callback){this.listeners||(this.listeners={});this.listeners[type]=callback;},setPointerCapture(){},querySelectorAll(){return []},
  getBoundingClientRect(){return {left:0,width:700}}
 });
+const bodyClasses=new Set();
 const document={
+ body:{classList:{
+  toggle(name,enabled){if(enabled)bodyClasses.add(name);else bodyClasses.delete(name);},
+  contains(name){return bodyClasses.has(name);}
+ }},
  querySelector(sel){
   if(sel.startsWith('#'))return get(sel);
   const match=sel.match(/^\[data-([a-z-]+)="([^"]+)"\]$/);
@@ -34,6 +39,9 @@ const document={
  querySelectorAll(sel){
   const sections={
    '[data-toggle-group]':get('#tracks').innerHTML+get('#timelineEvents').innerHTML+get('#studyHighlights').innerHTML+'<button data-toggle-group="context"></button>',
+   '[data-quick-toggle-group]':get('#tracks').innerHTML+get('#timelineEvents').innerHTML+get('#studyHighlights').innerHTML,
+   '[data-simple-filter]':get('#simpleSectionsMenu').innerHTML,
+   '[data-simple-fold]':get('#simpleSectionsMenu').innerHTML,
    '[data-filter]':get('#filters').innerHTML,
    '[data-hide-person]':get('#tracks').innerHTML,
    '[data-hide-event]':get('#timelineEvents').innerHTML,
@@ -52,7 +60,7 @@ const document={
 };
 const window={innerWidth:800,addEventListener(){},matchMedia(query){return {matches:query==='(max-width:600px)'&&this.innerWidth<=600}}};
 const sandbox={document,window};
-const api=vm.runInNewContext(sources.join('\n')+'\n({setupEra,zoomTo,jumpToEvent,jumpToStudyHighlight,inspect:()=>({year:selectedYear,start:START,end:END,events:events.length,hidden:[...hiddenEvents],collapsed:[...collapsedTimelineGroups],study:selectedStudyHighlight?.label||null})})',sandbox);
+const api=vm.runInNewContext(sources.join('\n')+'\n({setupEra,zoomTo,jumpToEvent,jumpToStudyHighlight,inspect:()=>({mode:viewMode,era:eraId,year:selectedYear,start:START,end:END,zoom:zoomLevel,events:events.length,hiddenPeople:[...hiddenPeople],categories:[...visibleCategories],hidden:[...hiddenEvents],collapsed:[...collapsedTimelineGroups],study:selectedStudyHighlight?.label||null})})',sandbox);
 const list=(name)=>callbacks['[data-'+name+']']||[];
 const control=(name,value)=>list(name).find(e=>Object.values(e.dataset).includes(String(value)));
 for(const era of ['jaredites','patriarchs','kings','jerusalem','exile','lehi','christ','aftermath']){
@@ -154,4 +162,66 @@ api.setupEra('jerusalem');
 assert(!api.inspect().collapsed.includes('events'),'events start expanded on desktop');
 assert(!api.inspect().collapsed.includes('study'),'study shelf starts expanded on desktop');
 assert(get('#eraNotes').open,'historical notes remain open on desktop');
-console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, 10 Daniel links, mobile layout, Read actions, collapse, jump and zoom.');
+
+assert(html.includes('id="viewDetailed"')&&html.includes('id="viewSimple"'),'two view controls exist');
+assert(html.includes('id="simpleYearLabel"')&&html.includes('id="simpleWindowNote"'),'inline year and compact range exist');
+assert(html.includes('id="simpleSectionsControl"'),'Sections menu exists');
+assert(css.includes('.simplified-view .legend')&&css.includes('.simplified-view footer'),'simplified hides legend and footnotes');
+assert(css.includes('.simplified-view #eraNotes'),'simplified hides historical notes');
+assert(css.includes('.simplified-view #timelineTouch .timeline-group-toggle{display:none}'),'simplified hides headings');
+assert(css.includes('.simplified-view .person-name'),'simplified uses category colors for person names');
+assert(css.includes('.simplified-view .scale{grid-template-columns:0 minmax(0,1fr);gap:0}'),'mobile axis aligns with full-width bars');
+window.innerWidth=390;
+api.setupEra('jerusalem');
+const detailedBefore=api.inspect();
+get('#viewSimple').onclick();
+assert.equal(api.inspect().mode,'simple');
+assert(bodyClasses.has('simplified-view'),'simplified CSS class set');
+assert.equal(get('#viewSimple').attributes['aria-pressed'],'true');
+assert(api.inspect().collapsed.includes('context'),'Scripture Context collapsed until needed');
+assert(api.inspect().collapsed.includes('events'),'event list starts collapsed in simplified');
+assert(get('#simpleSectionsMenu').innerHTML.includes('data-simple-filter="prophets"'));
+assert(get('#simpleSectionsMenu').innerHTML.includes('data-simple-fold="prophets"'));
+get('#simpleSectionsControl').open=true;
+control('simple-fold','prophets').onclick();
+assert(api.inspect().collapsed.includes('prophets'),'Sections menu folds category');
+assert(get('#simpleSectionsControl').open,'Sections menu stays open after use');
+control('simple-filter','foreign').onclick();
+assert(!api.inspect().categories.includes('foreign'),'Sections menu also filters categories');
+control('hide-person','Jeremiah').onclick();
+assert(api.inspect().hiddenPeople.includes('Jeremiah'),'individual hide remains active');
+control('quick-toggle-group','kings').onclick();
+assert(api.inspect().collapsed.includes('kings'),'tiny colored handle can fold a category');
+api.zoomTo(1);
+const simpleBefore=api.inspect();
+get('#viewDetailed').onclick();
+const detailedAfter=api.inspect();
+assert.equal(detailedAfter.mode,'detailed');
+assert(!bodyClasses.has('simplified-view'));
+assert.equal(detailedAfter.year,simpleBefore.year);
+assert.equal(detailedAfter.start,simpleBefore.start);
+assert.equal(detailedAfter.end,simpleBefore.end);
+assert.equal(detailedAfter.zoom,simpleBefore.zoom);
+assert(detailedAfter.hiddenPeople.includes('Jeremiah'));
+assert(!detailedAfter.categories.includes('foreign'));
+assert(!detailedAfter.collapsed.includes('prophets')&&!detailedAfter.collapsed.includes('kings'),
+ 'the detailed view retains its independent fold state');
+get('#viewSimple').onclick();
+assert(api.inspect().collapsed.includes('kings')&&api.inspect().collapsed.includes('prophets'),
+ 'the simplified fold state is preserved on return');
+assert.equal(get('#simpleYearLabel').textContent, '597 BC');
+assert(get('#simpleWindowNote').textContent.includes('25y'),'compact zoom range remains synchronized');
+api.jumpToEvent(0);
+assert(!api.inspect().collapsed.includes('context'),'event selection expands Scripture Context in simplified');
+get('#collapseAllGroups').onclick();
+assert(api.inspect().collapsed.includes('context'));
+get('#expandAllGroups').onclick();
+assert(!api.inspect().collapsed.includes('context'),'Expand All restores context even without visible header');
+api.setupEra('exile');
+assert.equal(api.inspect().mode,'simple','view choice persists when switching eras');
+assert(api.inspect().collapsed.includes('context'),'new era gets fresh simplified fold defaults');
+get('#viewDetailed').onclick();
+assert.equal(api.inspect().mode,'detailed');
+assert(!api.inspect().collapsed.includes('context'));
+
+console.log('Event layout checks passed: 8 eras, 19 Jerusalem rows, 10 Daniel links, mobile and desktop views, section toggles, and state retention.');
