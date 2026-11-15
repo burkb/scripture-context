@@ -281,7 +281,7 @@
 .simplified-view .simple-group-line{display:block;height:1px;flex:1;background:var(--group-color);opacity:.22}
 .simplified-view .simple-group-chevron{line-height:12px;font-size:12px;font-weight:800;margin-left:6px}
 .simplified-view .timeline-group-empty{margin:2px;font-size:11px}
-.simplified-view .study-highlight-help{display:none}
+.simplified-view .study-highlight-help,.simplified-view .study-highlight-date,.simplified-view .study-highlight-subheading{display:none}
 .simplified-view .study-highlight-subheading{margin:5px 3px;font-size:10px}
 .simplified-view .study-highlight-list{gap:3px;margin-bottom:5px}
 .simplified-view .study-highlight-item{padding:6px 7px}
