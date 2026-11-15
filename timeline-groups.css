@@ -297,3 +297,26 @@
  .simplified-view .group-actions-buttons button{padding:5px}
  .simplified-view .simple-sections>summary{padding:7px}
 }
+
+/* On a phone, both people and events use full-width names over aligned bars. */
+@media(max-width:600px){
+ .simplified-view .scale{grid-template-columns:0 minmax(0,1fr);gap:0}
+ .simplified-view #tracks .timeline-group-body>.track{
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 13px;
+  align-items:center;gap:0;margin:0;padding:1px 3px;min-height:0;
+ }
+ .simplified-view #tracks .timeline-group-body>.track .track-label-button{
+  grid-column:1;grid-row:1;width:100%;min-height:23px;
+  padding:2px 1px;gap:5px;
+ }
+ .simplified-view #tracks .timeline-group-body>.track .person-name{
+  display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  min-width:0;font-size:12px;
+ }
+ .simplified-view #tracks .timeline-group-body>.track>.lane{
+  grid-column:1;grid-row:2;height:13px;width:100%;
+ }
+ .simplified-view #tracks .timeline-group-body>.track>.lane>.bar{height:9px;top:2px}
+ .simplified-view #tracks .timeline-group-body>.track>.lane>.marker{height:11px;top:1px}
+ .simplified-view #timelineEvents .event-detail-row>.event-lane{width:100%}
+}
