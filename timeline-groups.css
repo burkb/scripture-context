@@ -211,3 +211,89 @@
  .study-highlight-item{padding:7px 9px}
  .study-highlight-subheading{margin:9px 3px 5px}
 }
+
+/* Presentation switch. Detailed is the default and preserves its historical notes. */
+.view-mode-tools{display:inline-flex;align-items:center;gap:2px;margin:7px 0 5px;padding:3px;border:1px solid #3e5b7a;border-radius:10px;background:#12273e}
+.view-mode-tools button{font-size:12px;min-height:31px;padding:6px 12px;border:0;border-radius:7px;background:transparent;color:#a9c0d9}
+.view-mode-tools button.view-mode-active{background:#d9e8ff;color:#122238}
+.view-mode-tools button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.event-select-row{display:block}
+.simple-year,.simple-window-note,.simple-sections,.simple-group-handle{display:none}
+
+/* Simplified is a CSS presentation of the existing track/event data and controls. */
+.simplified-view main{padding-top:9px}
+.simplified-view .eyebrow,.simplified-view h1,.simplified-view #eraDescription,
+.simplified-view #eraPeriod,.simplified-view #eraNotes,
+.simplified-view #filters,.simplified-view .filter-help,
+.simplified-view .timeline-panel>.top,.simplified-view .timeline-desktop-help,
+.simplified-view .timeline-mobile-help,.simplified-view .track-help,
+.simplified-view .group-actions-note,.simplified-view .event-group-help,
+.simplified-view .window-note,.simplified-view .era-strip,
+.simplified-view .legend,.simplified-view footer{display:none!important}
+.simplified-view .view-mode-tools{margin:0 0 5px}
+.simplified-view .era-wrap{margin:4px 0 6px}
+.simplified-view .era-wrap label{margin-bottom:3px;font-size:10px}
+.simplified-view .era-picker{padding:8px 10px;font-size:13px}
+.simplified-view .panel{margin-top:5px;padding:7px}
+.simplified-view .navigation-tools{display:flex;flex-direction:column;align-items:stretch;gap:5px;margin:3px 0}
+.simplified-view .significant-event-picker,.simplified-view .zoom-block{width:100%;min-width:0}
+.simplified-view .navigation-tools label{font-size:10px;margin-bottom:3px}
+.simplified-view .event-select-row{display:flex;align-items:center;gap:7px}
+.simplified-view .event-select-row .jump-picker{flex:1;min-width:0;width:0;padding:8px 7px;font-size:12px}
+.simplified-view .simple-year{display:block;flex:none;font-size:18px;font-weight:800;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.simplified-view .zoom-block>label{display:none}
+.simplified-view .zoom-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.simplified-view .simple-window-note{display:block;flex:1;min-width:0;color:#b5cce2;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.simplified-view .zoom-tools{flex:none;gap:4px}
+.simplified-view .zoom-tools button{padding:6px 8px;min-width:31px;min-height:33px;border-radius:7px;font-size:12px}
+.simplified-view .scale{margin:4px 0 1px}
+.simplified-view .group-actions{margin:5px 0;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:6px}
+.simplified-view .group-actions-buttons{flex:none;gap:4px}
+.simplified-view .group-actions-buttons button{padding:5px 7px;min-height:30px;font-size:10px}
+.simplified-view .simple-sections{display:block;position:relative;flex:0 1 auto;min-width:0}
+.simplified-view .simple-sections>summary{display:block;list-style:none;cursor:pointer;background:#203852;border:1px solid #4b6887;border-radius:7px;padding:7px 9px;font-size:11px;font-weight:700;color:#d6e7f5;white-space:nowrap}
+.simplified-view .simple-sections>summary::-webkit-details-marker{display:none}
+.simplified-view .simple-sections>summary:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.simplified-view .simple-sections-menu{position:absolute;left:0;top:calc(100% + 5px);z-index:15;width:min(90vw,360px);max-width:360px;padding:7px;border:1px solid #58718b;border-radius:10px;background:#142b42;box-shadow:0 8px 20px #0009}
+.simple-section-item{display:flex;align-items:center;justify-content:space-between;gap:7px;padding:7px 5px;border-bottom:1px solid #30475f;border-left:3px solid var(--section-color)}
+.simple-section-item:last-child{border-bottom:0}
+.simple-section-title{flex:1;min-width:0;padding-left:5px;color:#dceaf7;font-size:11px;line-height:1.25}
+.simple-section-buttons{display:flex;gap:4px;flex:none}
+.simple-section-buttons button{min-width:40px;min-height:30px;border-radius:6px;border:1px solid #57718c;padding:5px;color:#d4e6f5;background:#25415d;font-size:10px}
+.simple-section-buttons button[aria-pressed="false"]{opacity:.7}
+.simple-section-buttons button:disabled{opacity:.35}
+.simplified-view #tracks{gap:3px}
+.simplified-view #timelineEvents,.simplified-view #studyHighlights{margin-top:4px}
+.simplified-view #timelineTouch .timeline-group{position:relative;overflow:visible;border:0;border-left:2px solid var(--group-color);border-radius:0;background:transparent}
+.simplified-view #timelineTouch .timeline-group-toggle{display:none}
+.simplified-view #timelineTouch .timeline-group-body{padding:1px 3px 3px}
+.simplified-view #timelineTouch .timeline-group-body>.track{min-height:24px;margin:1px 0;padding:1px 2px}
+.simplified-view #timelineTouch .timeline-group-body>.track .track-label-button{padding:3px 2px;line-height:1.16}
+.simplified-view .person-name{color:var(--person-color)!important}
+.simplified-view .event-row-title{color:var(--row-color)!important}
+.simplified-view .simple-group-handle{
+ display:flex;align-items:center;justify-content:space-between;width:100%;height:13px;min-height:13px;
+ border:0;border-radius:0;background:transparent;color:var(--group-color);
+ padding:0 5px;cursor:pointer
+}
+.simplified-view .simple-group-handle:hover{background:#1a3347}
+.simplified-view .simple-group-handle:focus-visible{outline:2px solid #fff;outline-offset:-1px}
+.simplified-view .simple-group-line{display:block;height:1px;flex:1;background:var(--group-color);opacity:.22}
+.simplified-view .simple-group-chevron{line-height:12px;font-size:12px;font-weight:800;margin-left:6px}
+.simplified-view .timeline-group-empty{margin:2px;font-size:11px}
+.simplified-view .study-highlight-help{display:none}
+.simplified-view .study-highlight-subheading{margin:5px 3px;font-size:10px}
+.simplified-view .study-highlight-list{gap:3px;margin-bottom:5px}
+.simplified-view .study-highlight-item{padding:6px 7px}
+.simplified-view #contextPanel:not(.context-open){display:none}
+.simplified-view #contextPanel.context-open{padding:0;margin-top:6px;border:1px solid #395f7d;border-radius:10px}
+.simplified-view #contextPanel .timeline-group-toggle{min-height:31px;padding:6px 9px}
+.simplified-view #contextPanel .context-content{padding:7px}
+.simplified-view .hidden-tracks:not(:empty){margin:3px 0 6px;padding:6px}
+@media(max-width:360px){
+ .simplified-view .simple-year{font-size:15px}
+ .simplified-view .simple-window-note{font-size:10px}
+ .simplified-view .zoom-tools button{padding:5px 6px;min-width:29px}
+ .simplified-view .group-actions-buttons button{padding:5px}
+ .simplified-view .simple-sections>summary{padding:7px}
+}
