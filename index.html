@@ -486,8 +486,11 @@ function renderSimpleSectionsMenu(){
  $('#simpleSectionsMenu').innerHTML=defs.map(({id,label,color,filtered})=>{
   const enabled=!filtered||visibleCategories.has(id);
   const expanded=!collapsedTimelineGroups.has(id);
+  const count=filtered?tracks.filter(t=>t.c===id&&!hiddenPeople.has(t.name)).length:
+   id==='events'?events.filter((e,i)=>visibleCategories.has(e.cat)&&!hiddenEvents.has(i)).length:
+   id==='study'?currentStudyHighlights().length:null;
   return `<div class="simple-section-item" style="--section-color:${color||'#a7c3de'}">
-   <span class="simple-section-title">${escapeTimelineText(label)}</span>
+   <span class="simple-section-title">${escapeTimelineText(label)}${count===null?'':` (${count})`}</span>
    <span class="simple-section-buttons">
    ${filtered?`<button type="button" data-simple-filter="${id}" aria-pressed="${enabled}" aria-label="${enabled?'Hide':'Show'} category ${escapeTimelineText(label)}">${enabled?'On':'Off'}</button>`:''}
    <button type="button" data-simple-fold="${id}" aria-pressed="${expanded}" aria-label="${expanded?'Collapse':'Expand'} section ${escapeTimelineText(label)}" ${!enabled?'disabled':''}>${expanded?'Fold':'Open'}</button>
